@@ -1,0 +1,26 @@
+{
+    "sourceFile": "React_bun/src/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1764175044260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764176445775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,6 @@\n       perspiciatis nemo ex blanditiis cum in facilis!</h4>\n   \n     </>\n   )\n-}\n+}                                                          \n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764176455491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <img src=\"money_image.jpg\" alt=\"honey hest\"\n       width=\"39%\" height=\"39%\" />\n      </div>\n \n-     <h2>Name: Money Heist</h2>\n+     <h2>Name: Money Heistgfv</h2>\n      <h3>Rating : 5</h3>\n      <h4>Summer: Lorem ipsum dolor, sit amet consectetur \n       adipisicing elit. Architecto aperiam in veniam similique,\n        tempore vel atque expedita sed. Atque impedit eum vel corporis \n"
+                }
+            ],
+            "date": 1764175044260,
+            "name": "Commit-0",
+            "content": " export const App =()=> {\n  return(\n    <>\n    <div>\n       <h1>Shree Ganesh</h1>\n\n     \n      <img src=\"money_image.jpg\" alt=\"honey hest\"\n      width=\"39%\" height=\"39%\" />\n     </div>\n\n     <h2>Name: Money Heist</h2>\n     <h3>Rating : 5</h3>\n     <h4>Summer: Lorem ipsum dolor, sit amet consectetur \n      adipisicing elit. Architecto aperiam in veniam similique,\n       tempore vel atque expedita sed. Atque impedit eum vel corporis \n      perspiciatis nemo ex blanditiis cum in facilis!</h4>\n  \n    </>\n  )\n}\n  "
+        }
+    ]
+}
