@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Stranger Things",
+    "id": "stranger-things",
+    "rating": "8.7",
+    "description": "A group of young friends witness supernatural forces and secret government exploits.",
+    "cast": ["Winona Ryder", "David Harbour", "Millie Bobby Brown"],
+    "genre": ["Drama", "Fantasy", "Horror"]
+  },
+  {
+    "name": "Money Heist",
+    "id": "money-heist",
+    "rating": "8.3",
+    "description": "A group of skilled robbers plan heists led by a mastermind known as The Professor.",
+    "cast": ["Álvaro Morte", "Úrsula Corberó", "Pedro Alonso"],
+    "genre": ["Action", "Crime", "Thriller"]
+  },
+  {
+    "name": "Breaking Bad",
+    "id": "breaking-bad",
+    "rating": "9.5",
+    "description": "A chemistry teacher turned meth kingpin partners with a former student to secure his family's future.",
+    "cast": ["Bryan Cranston", "Aaron Paul", "Anna Gunn"],
+    "genre": ["Crime", "Drama", "Thriller"]
+  },
+  {
+    "name": "The Witcher",
+    "id": "the-witcher",
+    "rating": "8.2",
+    "description": "A monster hunter struggles to find his place in a world where people can be worse than beasts.",
+    "cast": ["Henry Cavill", "Anya Chalotra", "Freya Allan"],
+    "genre": ["Fantasy", "Action", "Drama"]
+  },
+  {
+    "name": "Dark",
+    "id": "dark",
+    "rating": "8.8",
+    "description": "A small town unravels a mystery involving time travel and interconnected families.",
+    "cast": ["Louis Hofmann", "Lisa Vicari", "Oliver Masucci"],
+    "genre": ["Sci-Fi", "Thriller", "Mystery"]
+  },
+  {
+    "name": "Peaky Blinders",
+    "id": "peaky-blinders",
+    "rating": "8.8",
+    "description": "A gangster family rises to power in Birmingham after World War I.",
+    "cast": ["Cillian Murphy", "Paul Anderson", "Helen McCrory"],
+    "genre": ["Crime", "Drama", "History"]
+  },
+  {
+    "name": "The Boys",
+    "id": "the-boys",
+    "rating": "8.7",
+    "description": "A group of vigilantes fight corrupt superheroes backed by a powerful corporation.",
+    "cast": ["Karl Urban", "Jack Quaid", "Antony Starr"],
+    "genre": ["Action", "Dark Comedy", "Drama"]
+  },
+  {
+    "name": "Wednesday",
+    "id": "wednesday",
+    "rating": "8.1",
+    "description": "Wednesday Addams investigates mysteries at Nevermore Academy while discovering her powers.",
+    "cast": ["Jenna Ortega", "Emma Myers", "Hunter Doohan"],
+    "genre": ["Mystery", "Fantasy", "Comedy"]
+  },
+  {
+    "name": "Squid Game",
+    "id": "squid-game",
+    "rating": "8.0",
+    "description": "Hundreds of people risk their lives in deadly games for a chance at a massive cash prize.",
+    "cast": ["Lee Jung-jae", "Park Hae-soo", "Jung Ho-yeon"],
+    "genre": ["Thriller", "Drama", "Survival"]
+  },
+  {
+    "name": "Loki",
+    "id": "loki",
+    "rating": "8.2",
+    "description": "The God of Mischief navigates the Time Variance Authority and multiple timelines.",
+    "cast": ["Tom Hiddleston", "Owen Wilson", "Sophia Di Martino"],
+    "genre": ["Sci-Fi", "Action", "Fantasy"]
+  },
+  {
+    "name": "Game of Thrones",
+    "id": "game-of-thrones",
+    "rating": "9.2",
+    "description": "Noble families fight for control of the Iron Throne in the Seven Kingdoms of Westeros.",
+    "cast": ["Emilia Clarke", "Kit Harington", "Peter Dinklage"],
+    "genre": ["Fantasy", "Drama", "Adventure"]
+  }
+]

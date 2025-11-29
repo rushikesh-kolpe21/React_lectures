@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/components/Netflix.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1764303994843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764304552955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,20 @@\n+import seriesData from \"../api/seriesData\";\r\n+\r\n export const Netflix =()=> {\r\n+    // declear a variable\r\n     return(\r\n         <>\r\n-        <p>this is Netflix component</p>\r\n+        <ul>\r\n+            <li>\r\n+                <h2>name: {seriesData[0].name}</h2>\r\n+                <h3>id: {seriesData[0].id}</h3>\r\n+                <h4>rating: {seriesData[0].rating}</h4>\r\n+                <h5>description: {seriesData[0].description}</h5>\r\n+                <h6>cast: {seriesData[0].cast.join(\", \")}</h6>\r\n+                <p>genre: {seriesData[0].genre.join(\", \")}</p>\r\n+            </li>\r\n+        </ul>\r\n+        \r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764304853514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import seriesData from \"../api/seriesData\";\r\n+import seriesData from \"../api/data.json\";\r\n \r\n export const Netflix =()=> {\r\n     // declear a variable\r\n     return(\r\n"
+                },
+                {
+                    "date": 1764304966321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import seriesData from \"../api/data.json\";\r\n+import {seriesData} from \"../api/data.json\";\r\n \r\n export const Netflix =()=> {\r\n     // declear a variable\r\n     return(\r\n"
+                },
+                {
+                    "date": 1764304988139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import {seriesData} from \"../api/data.json\";\r\n+import seriesData from \"../api/data.json\";\r\n \r\n export const Netflix =()=> {\r\n     // declear a variable\r\n     return(\r\n"
+                },
+                {
+                    "date": 1764305561622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,16 +4,20 @@\n     // declear a variable\r\n     return(\r\n         <>\r\n         <ul>\r\n-            <li>\r\n+           seriesData.map((currElem)=>{\r\n+            return(\r\n+                 <li>\r\n                 <h2>name: {seriesData[0].name}</h2>\r\n                 <h3>id: {seriesData[0].id}</h3>\r\n                 <h4>rating: {seriesData[0].rating}</h4>\r\n                 <h5>description: {seriesData[0].description}</h5>\r\n                 <h6>cast: {seriesData[0].cast.join(\", \")}</h6>\r\n                 <p>genre: {seriesData[0].genre.join(\", \")}</p>\r\n             </li>\r\n+            )\r\n+           })\r\n         </ul>\r\n         \r\n         </>\r\n     )\r\n"
+                },
+                {
+                    "date": 1764305674061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,20 +4,22 @@\n     // declear a variable\r\n     return(\r\n         <>\r\n         <ul>\r\n-           seriesData.map((currElem)=>{\r\n+          {\r\n+             seriesData.map((currElem)=>{\r\n             return(\r\n                  <li>\r\n-                <h2>name: {seriesData[0].name}</h2>\r\n-                <h3>id: {seriesData[0].id}</h3>\r\n-                <h4>rating: {seriesData[0].rating}</h4>\r\n-                <h5>description: {seriesData[0].description}</h5>\r\n-                <h6>cast: {seriesData[0].cast.join(\", \")}</h6>\r\n-                <p>genre: {seriesData[0].genre.join(\", \")}</p>\r\n+                <h2>name: {currElem[0].name}</h2>\r\n+                <h3>id: {currElem[0].id}</h3>\r\n+                <h4>rating: {seriecurrElem[0].rating}</h4>\r\n+                <h5>description: {currElem[0].description}</h5>\r\n+                <h6>cast: {currElem[0].cast.join(\", \")}</h6>\r\n+                <p>genre: {currElem[0].genre.join(\", \")}</p>\r\n             </li>\r\n             )\r\n            })\r\n+          };\r\n         </ul>\r\n         \r\n         </>\r\n     )\r\n"
+                },
+                {
+                    "date": 1764305795578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,14 +8,14 @@\n           {\r\n              seriesData.map((currElem)=>{\r\n             return(\r\n                  <li>\r\n-                <h2>name: {currElem[0].name}</h2>\r\n-                <h3>id: {currElem[0].id}</h3>\r\n-                <h4>rating: {seriecurrElem[0].rating}</h4>\r\n-                <h5>description: {currElem[0].description}</h5>\r\n-                <h6>cast: {currElem[0].cast.join(\", \")}</h6>\r\n-                <p>genre: {currElem[0].genre.join(\", \")}</p>\r\n+                <h2>name: {currEle.name}</h2>\r\n+                <h3>id: {currEle.id}</h3>\r\n+                <h4>rating: {seriecurrEle.rating}</h4>\r\n+                <h5>description: {currElemdescription}</h5>\r\n+                <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n+                <p>genre: {currEle.genre.join(\", \")}</p>\r\n             </li>\r\n             )\r\n            })\r\n           };\r\n"
+                },
+                {
+                    "date": 1764305823157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     return(\r\n         <>\r\n         <ul>\r\n           {\r\n-             seriesData.map((currElem)=>{\r\n+             seriesData.map((currEle)=>{\r\n             return(\r\n                  <li>\r\n                 <h2>name: {currEle.name}</h2>\r\n                 <h3>id: {currEle.id}</h3>\r\n"
+                },
+                {
+                    "date": 1764305852311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n             return(\r\n                  <li>\r\n                 <h2>name: {currEle.name}</h2>\r\n                 <h3>id: {currEle.id}</h3>\r\n-                <h4>rating: {seriecurrEle.rating}</h4>\r\n+                <h4>rating: {currEle.rating}</h4>\r\n                 <h5>description: {currElemdescription}</h5>\r\n                 <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n                 <p>genre: {currEle.genre.join(\", \")}</p>\r\n             </li>\r\n"
+                },
+                {
+                    "date": 1764305887408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n                  <li>\r\n                 <h2>name: {currEle.name}</h2>\r\n                 <h3>id: {currEle.id}</h3>\r\n                 <h4>rating: {currEle.rating}</h4>\r\n-                <h5>description: {currElemdescription}</h5>\r\n+                <h5>description: {currElen}</h5>\r\n                 <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n                 <p>genre: {currEle.genre.join(\", \")}</p>\r\n             </li>\r\n             )\r\n"
+                },
+                {
+                    "date": 1764306051940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n                  <li>\r\n                 <h2>name: {currEle.name}</h2>\r\n                 <h3>id: {currEle.id}</h3>\r\n                 <h4>rating: {currEle.rating}</h4>\r\n-                <h5>description: {currElen}</h5>\r\n+                <h5>Description: {currEle.description}</h5>\r\n                 <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n                 <p>genre: {currEle.genre.join(\", \")}</p>\r\n             </li>\r\n             )\r\n"
+                }
+            ],
+            "date": 1764303994843,
+            "name": "Commit-0",
+            "content": "export const Netflix =()=> {\r\n    return(\r\n        <>\r\n        <p>this is Netflix component</p>\r\n        </>\r\n    )\r\n}"
+        }
+    ]
+}
