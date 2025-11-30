@@ -1,5 +1,4 @@
 import { Netflix } from "./components/Netflix";
-import { Profile } from "./components/Profile";
 
  export const App =()=> {
 
@@ -7,8 +6,7 @@ import { Profile } from "./components/Profile";
 
   return(
     <>
-    {/* <Netflix/> */}
-    <Profile/>
+    <Netflix/>
     </>
   )
 }                                                          

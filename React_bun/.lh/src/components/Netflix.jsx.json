@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 11,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1764303994843,
@@ -52,6 +52,42 @@
                 {
                     "date": 1764306051940,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n                  <li>\r\n                 <h2>name: {currEle.name}</h2>\r\n                 <h3>id: {currEle.id}</h3>\r\n                 <h4>rating: {currEle.rating}</h4>\r\n-                <h5>description: {currElen}</h5>\r\n+                <h5>Description: {currEle.description}</h5>\r\n                 <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n                 <p>genre: {currEle.genre.join(\", \")}</p>\r\n             </li>\r\n             )\r\n"
+                },
+                {
+                    "date": 1764392328514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import seriesData from \"../api/data.json\";\r\n \r\n export const Netflix =()=> {\r\n-    // declear a variable\r\n+ // declear a variable\r\n     return(\r\n         <>\r\n         <ul>\r\n           {\r\n@@ -14,13 +14,12 @@\n                 <h4>rating: {currEle.rating}</h4>\r\n                 <h5>Description: {currEle.description}</h5>\r\n                 <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n                 <p>genre: {currEle.genre.join(\", \")}</p>\r\n-            </li>\r\n+                </li>\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n-        \r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764392390266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                 <li>\r\n-                <h2>name: {currEle.name}</h2>\r\n-                <h3>id: {currEle.id}</h3>\r\n-                <h4>rating: {currEle.rating}</h4>\r\n-                <h5>Description: {currEle.description}</h5>\r\n-                <h6>cast: {currEle.cast.join(\", \")}</h6>\r\n-                <p>genre: {currEle.genre.join(\", \")}</p>\r\n-                </li>\r\n+                <seriesData/>\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
+                },
+                {
+                    "date": 1764392398601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                <seriesData/>\r\n+                <seriesData />\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
+                },
+                {
+                    "date": 1764392483823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                <seriesData />\r\n+                <SeriesData currEle={currEle} />\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
+                },
+                {
+                    "date": 1764392508955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import seriesData from \"../api/data.json\";\r\n+import SeriesData from \"../api/data.json\";\r\n \r\n export const Netflix =()=> {\r\n  // declear a variable\r\n     return(\r\n"
+                },
+                {
+                    "date": 1764392544219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-import SeriesData from \"../api/data.json\";\r\n+import seriesData from \"../api/data.json\";\r\n+import { SeriesData } from \"./SeriesCards\";\r\n \r\n export const Netflix =()=> {\r\n  // declear a variable\r\n     return(\r\n"
+                },
+                {
+                    "date": 1764392637550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                <SeriesData currEle={currEle} />\r\n+                <SeriesData key={currEle.id} data={currEle} />\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
+                },
+                {
+                    "date": 1764393024862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                <SeriesData key={currEle.id} data={currEle} />\r\n+                <SeriesData key={currEle.id} props={currEle} />\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
+                },
+                {
+                    "date": 1764393059180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n         <ul>\r\n           {\r\n              seriesData.map((currEle)=>{\r\n             return(\r\n-                <SeriesData key={currEle.id} props={currEle} />\r\n+                <SeriesData key={currEle} data={currEle} />\r\n             )\r\n            })\r\n           };\r\n         </ul>\r\n"
                 }
             ],
             "date": 1764303994843,

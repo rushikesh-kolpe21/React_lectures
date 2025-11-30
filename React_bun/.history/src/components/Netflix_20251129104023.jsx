@@ -9,7 +9,7 @@ export const Netflix =()=> {
           {
              seriesData.map((currEle)=>{
             return(
-                <SeriesData key={currEle} data={currEle} />
+                <SeriesData key={currEle.id} props={currEle} />
             )
            })
           };

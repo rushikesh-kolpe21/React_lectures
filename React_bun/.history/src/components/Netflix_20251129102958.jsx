@@ -1,5 +1,4 @@
 import seriesData from "../api/data.json";
-import { SeriesData } from "./SeriesCards";
 
 export const Netflix =()=> {
  // declear a variable
@@ -9,7 +8,7 @@ export const Netflix =()=> {
           {
              seriesData.map((currEle)=>{
             return(
-                <SeriesData key={currEle} data={currEle} />
+                <seriesData />
             )
            })
           };

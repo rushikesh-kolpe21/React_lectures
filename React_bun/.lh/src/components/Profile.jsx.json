@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/components/Profile.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1764394724840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764394781087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n         </div>\r\n       }\r\n       >\r\n         <p>This is children props</p>\r\n+        <button>Contact</button>\r\n      </ProfileCard>\r\n     </>\r\n   )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764395068288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,39 @@\n       >\r\n         <p>This is children props</p>\r\n         <button>Contact</button>\r\n      </ProfileCard>\r\n+\r\n+     <ProfileCard\r\n+      name=\"om\" \r\n+      age={22} \r\n+      profession=\"Tesing\"\r\n+      greeeting = {\r\n+        <div>\r\n+            <strong>Hello om</strong>\r\n+        </div>\r\n+      }\r\n+      >\r\n+        <p>This is children props</p>\r\n+        <button>Contact</button>\r\n+     </ProfileCard>\r\n     </>\r\n   )\r\n+}\r\n+\r\n+\r\n+// Profile Card Component same file\r\n+const ProfileCard = (props) => {\r\n+    return(\r\n+        <>\r\n+        <h2>name: {props.name}</h2>\r\n+        <h3>age: {props.age}</h3>\r\n+        <h4>profession: {props.profession}</h4>\r\n+        {/* <div>\r\n+          {}\r\n+        </div>\r\n+        <div>\r\n+          {}\r\n+        </div> */}\r\n+        </>\r\n+    )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764395161443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,13 +39,13 @@\n         <>\r\n         <h2>name: {props.name}</h2>\r\n         <h3>age: {props.age}</h3>\r\n         <h4>profession: {props.profession}</h4>\r\n-        {/* <div>\r\n-          {}\r\n+        <div>\r\n+          {props.greeeting}\r\n         </div>\r\n         <div>\r\n-          {}\r\n-        </div> */}\r\n+          {props.children}\r\n+        </div>\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764395197587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n             <strong>Hello Rushi</strong>\r\n         </div>\r\n       }\r\n       >\r\n-        <p>This is children props</p>\r\n+        <p>om sai ram</p>\r\n         <button>Contact</button>\r\n      </ProfileCard>\r\n \r\n      <ProfileCard\r\n@@ -24,9 +24,9 @@\n             <strong>Hello om</strong>\r\n         </div>\r\n       }\r\n       >\r\n-        <p>This is children props</p>\r\n+        <p>om sai ram</p>\r\n         <button>Contact</button>\r\n      </ProfileCard>\r\n     </>\r\n   )\r\n"
+                },
+                {
+                    "date": 1764395490582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         <div>\r\n           {props.greeeting}\r\n         </div>\r\n         <div>\r\n-          {props.children}\r\n+          {props.children} // child mey sab kuch aa jayega\r\n         </div>\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764395527497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n   return (\r\n     <>\r\n      <ProfileCard\r\n       name=\"Rushi\" \r\n-      age={21} profession=\"Developer\"\r\n+      age={21} // pass in curly braces\r\n+      profession=\"Developer\"\r\n       greeeting = {\r\n         <div>\r\n             <strong>Hello Rushi</strong>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1764395720642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n             <strong>Hello Rushi</strong>\r\n         </div>\r\n       }\r\n       >\r\n+        {/* // children props */}\r\n         <p>om sai ram</p>\r\n         <button>Contact</button>\r\n      </ProfileCard>\r\n \r\n"
+                },
+                {
+                    "date": 1764396046207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,13 +36,14 @@\n \r\n \r\n // Profile Card Component same file\r\n const ProfileCard = (props) => {\r\n+    const {name,age,profession} = props;\r\n     return(\r\n         <>\r\n-        <h2>name: {props.name}</h2>\r\n-        <h3>age: {props.age}</h3>\r\n-        <h4>profession: {props.profession}</h4>\r\n+        <h2>name: {name}</h2>\r\n+        <h3>age: {age}</h3>\r\n+        <h4>profession: {profession}</h4>\r\n         <div>\r\n           {props.greeeting}\r\n         </div>\r\n         <div>\r\n"
+                }
+            ],
+            "date": 1764394724840,
+            "name": "Commit-0",
+            "content": "// becarefull syntax will change\r\nexport const Profile = () => {\r\n  return (\r\n    <>\r\n     <ProfileCard\r\n      name=\"Rushi\" \r\n      age={21} profession=\"Developer\"\r\n      greeeting = {\r\n        <div>\r\n            <strong>Hello Rushi</strong>\r\n        </div>\r\n      }\r\n      >\r\n        <p>This is children props</p>\r\n     </ProfileCard>\r\n    </>\r\n  )\r\n}"
+        }
+    ]
+}
