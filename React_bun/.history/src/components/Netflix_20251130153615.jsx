@@ -13,7 +13,7 @@ export const Netflix =()=> {
                 <SeriesData key={currEle} data={currEle} />
             )
            })
-          }
+          };
         
         </ul>
         </>

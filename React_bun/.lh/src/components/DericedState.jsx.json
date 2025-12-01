@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/components/DericedState.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1764612865841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764613023328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n                 {users.map((user)=>{\r\n-                    <h2>User name : {user.name} and {user.age} year old</h2>\r\n+                    return(\r\n+                        <h2>User name : {user.name} and {user.age} year old</h2>\r\n+                    )\r\n                 })}\r\n             </ul>\r\n         </div>\r\n     )\r\n"
+                },
+                {
+                    "date": 1764613182448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n-                {users.map((user)=>{\r\n+                {users.map((curUser)=>{\r\n                     return(\r\n-                        <h2>User name : {user.name} and {user.age} year old</h2>\r\n+                        <h2>User name : {curUser.name} and {curUser.age} year old</h2>\r\n                     )\r\n                 })}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1764613193786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n-                {users.map((curUser)=>{\r\n+                {users.map((currUser)=>{\r\n                     return(\r\n-                        <h2>User name : {curUser.name} and {curUser.age} year old</h2>\r\n+                        <h2>User name : {currUser.name} and {currUser.age} year old</h2>\r\n                     )\r\n                 })}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1764613228543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,11 +9,11 @@\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n-                {users.map((currUser)=>{\r\n+                {users.map((currUser, index)=>{\r\n                     return(\r\n-                        <h2>User name : {currUser.name} and {currUser.age} year old</h2>\r\n+                        <h2 key={index}>User name : {currUser.name} and {currUser.age} year old</h2>\r\n                     )\r\n                 })}\r\n             </ul>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1764613416785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,13 @@\n-const users = [\r\n+import { useState } from \"react\"\r\n+\r\n+const [users, setUsers] = useState(\r\n+    [\r\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n-];\r\n+])\r\n \r\n export const DericedState = () => {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1764613439819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n-])\r\n+]);\r\n \r\n export const DericedState = () => {\r\n     return (\r\n         <div>\r\n"
+                },
+                {
+                    "date": 1764613460635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n import { useState } from \"react\"\r\n \r\n-const [users, setUsers] = useState(\r\n+\r\n+\r\n+export const DericedState = () => {\r\n+    const [users, setUsers] = useState(\r\n     [\r\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n-\r\n-export const DericedState = () => {\r\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n"
+                }
+            ],
+            "date": 1764612865841,
+            "name": "Commit-0",
+            "content": "const users = [\r\n    { id: 1, name: 'Alice', age: 28 },\r\n    { id: 2, name: 'Bob', age: 34 },\r\n    { id: 3, name: 'Charlie', age: 22 },\r\n    { id: 4, name: 'Diana', age: 19 },\r\n];\r\n\r\nexport const DericedState = () => {\r\n    return (\r\n        <div>\r\n            <h1>User List</h1>\r\n            <ul>\r\n                {users.map((user)=>{\r\n                    <h2>User name : {user.name} and {user.age} year old</h2>\r\n                })}\r\n            </ul>\r\n        </div>\r\n    )\r\n}"
+        }
+    ]
+}

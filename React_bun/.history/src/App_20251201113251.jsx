@@ -1,4 +1,3 @@
-import { DericedState } from "./components/DericedState";
 import { EventProps } from "./components/EventProps";
 import { Netflix } from "./components/Netflix";
 import { Profile } from "./components/Profile";
@@ -10,9 +9,8 @@ import { Profile } from "./components/Profile";
   return(
     <>
     {/* <Netflix/> */}
-    {/* <Profile/> */}
-    {/* <EventProps/> */}
-    <DericedState/>
+    <Profile/>
+    <EventProps/>
     </>
   )
 }                                                          

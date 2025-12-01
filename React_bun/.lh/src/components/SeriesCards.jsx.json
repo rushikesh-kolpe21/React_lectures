@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/SeriesCards.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764566573234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764566573234,
+            "name": "Commit-0",
+            "content": "export const SeriesData = (props) => {\r\n    const {name,id,rating,description,cast,genre} = props.data;\r\n  return (\r\n    <li>\r\n      <h2>name: {name}</h2>\r\n      <h3>id: {id}</h3>\r\n      <h4>rating: {rating}</h4>\r\n      <h5>Description: {description}</h5>\r\n      <h6>cast: {cast.join(\", \")}</h6>\r\n      <p>genre: {genre.join(\", \")}</p>\r\n    </li>\r\n  );\r\n};\r\n\r\n"
+        }
+    ]
+}

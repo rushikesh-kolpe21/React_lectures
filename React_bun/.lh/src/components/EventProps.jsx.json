@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/components/EventProps.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1764567609663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764568205007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,19 @@\n-export const EventProps = (props) => {\r\n-    return(\r\n-        \r\n+export const EventProps = () => {\r\n+    // parent componet\r\n+    const HandleWelcomeUser=(user)=>{\r\n+        alert(`hey,${user}`);\r\n+    };\r\n+\r\n+    const handleHover=()=>{\r\n+        alert(\"hey thx for hovering me\");\r\n+    }\r\n+\r\n+    return(  // child compentent\r\n+        <>\r\n+        <WelcomeUser\r\n+         onClick={()=> HandleWelcomeUser('vinod')}\r\n+            onMouseEnter={handleHover}\r\n+        />\r\n+        </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764568577038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const handleHover=()=>{\r\n         alert(\"hey thx for hovering me\");\r\n     }\r\n \r\n-    return(  // child compentent\r\n+    return(  // child compentent // and pass props to the welcomeUser\r\n         <>\r\n         <WelcomeUser\r\n          onClick={()=> HandleWelcomeUser('vinod')}\r\n             onMouseEnter={handleHover}\r\n"
+                },
+                {
+                    "date": 1764568922661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,17 @@\n             onMouseEnter={handleHover}\r\n         />\r\n         </>\r\n     )\r\n+}\r\n+\r\n+// new file\r\n+\r\n+const WelcomeUser = ()=>{\r\n+    return(\r\n+        <>\r\n+            <button onClick={props.onClick}>xlick</button>\r\n+              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n+                <button onClick={handleGreeting}>Greeting</button>\r\n+        </>\r\n+    )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764568945368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n \r\n const WelcomeUser = ()=>{\r\n     return(\r\n         <>\r\n-            <button onClick={props.onClick}>xlick</button>\r\n-              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n-                <button onClick={handleGreeting}>Greeting</button>\r\n+             <button onClick={props.onClick}>xlick</button>\r\n+             <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n+             <button onClick={handleGreeting}>Greeting</button>\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764569028233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n }\r\n \r\n // new file\r\n \r\n-const WelcomeUser = ()=>{\r\n+const WelcomeUser = (props)=>{\r\n     return(\r\n         <>\r\n              <button onClick={props.onClick}>xlick</button>\r\n              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n"
+                },
+                {
+                    "date": 1764569040926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n     return(\r\n         <>\r\n              <button onClick={props.onClick}>xlick</button>\r\n              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n-             <button onClick={handleGreeting}>Greeting</button>\r\n+             {/* <button onClick={handleGreeting}>Greeting</button> */}\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764569644777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,12 +20,16 @@\n \r\n // new file\r\n \r\n const WelcomeUser = (props)=>{\r\n+    const handleGreeting=()=>{\r\n+        console.log('hey user, welcome');\r\n+        onClick();\r\n+    }\r\n     return(\r\n         <>\r\n              <button onClick={props.onClick}>xlick</button>\r\n              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n-             {/* <button onClick={handleGreeting}>Greeting</button> */}\r\n+             <button onClick={handleGreeting}>Greeting</button>\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764569674067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n \r\n const WelcomeUser = (props)=>{\r\n     const handleGreeting=()=>{\r\n         console.log('hey user, welcome');\r\n-        onClick();\r\n+        props.onClick();\r\n     }\r\n     return(\r\n         <>\r\n              <button onClick={props.onClick}>xlick</button>\r\n"
+                },
+                {
+                    "date": 1764569777454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n     return(  // child compentent // and pass props to the welcomeUser\r\n         <>\r\n         <WelcomeUser\r\n-         onClick={()=> HandleWelcomeUser('vinod')}\r\n+         onbtnClick={()=> HandleWelcomeUser('vinod')}\r\n             onMouseEnter={handleHover}\r\n         />\r\n         </>\r\n     )\r\n@@ -26,9 +26,9 @@\n         props.onClick();\r\n     }\r\n     return(\r\n         <>\r\n-             <button onClick={props.onClick}>xlick</button>\r\n+             <button onClick={props.onbtnClick}>xlick</button>\r\n              <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n              <button onClick={handleGreeting}>Greeting</button>\r\n         </>\r\n     )\r\n"
+                },
+                {
+                    "date": 1764569881586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const handleHover=()=>{\r\n         alert(\"hey thx for hovering me\");\r\n     }\r\n \r\n-    return(  // child compentent // and pass props to the welcomeUser\r\n+    return(  // child compentent // and pass props to the welcomeUser// onbtnClickj this is only event kuch be rak sakto ho\r\n         <>\r\n         <WelcomeUser\r\n          onbtnClick={()=> HandleWelcomeUser('vinod')}\r\n             onMouseEnter={handleHover}\r\n"
+                },
+                {
+                    "date": 1764596404477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+// # 27\r\n export const EventProps = () => {\r\n     // parent componet\r\n     const HandleWelcomeUser=(user)=>{\r\n         alert(`hey,${user}`);\r\n"
+                }
+            ],
+            "date": 1764567609663,
+            "name": "Commit-0",
+            "content": "export const EventProps = (props) => {\r\n    return(\r\n        \r\n    )\r\n}"
+        }
+    ]
+}
