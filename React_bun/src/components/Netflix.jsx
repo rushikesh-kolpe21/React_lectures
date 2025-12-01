@@ -1,6 +1,7 @@
 import seriesData from "../api/data.json";
 import { SeriesData } from "./SeriesCards";
 
+
 export const Netflix =()=> {
  // declear a variable
     return(
@@ -13,6 +14,7 @@ export const Netflix =()=> {
             )
            })
           };
+        
         </ul>
         </>
     )

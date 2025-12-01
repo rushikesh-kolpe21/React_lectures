@@ -1,7 +1,11 @@
 // becarefull syntax will change
+
+import { EventHandling } from "./EventHandling";
+
 export const Profile = () => {
   return (
     <>
+     <EventHandling/>
      <ProfileCard
       name="Rushi" 
       age={21} // pass in curly braces
@@ -14,7 +18,11 @@ export const Profile = () => {
       >
         {/* // children props */}
         <p>om sai ram</p>
-        <button>Contact</button>
+       
+<button class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium shadow">
+  Primary Button
+</button>
+
      </ProfileCard>
 
      <ProfileCard
