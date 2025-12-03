@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+
+
 export const DericedState = () => {
     const [users, setUsers] = useState(
     [
@@ -7,10 +9,8 @@ export const DericedState = () => {
     { id: 2, name: 'Bob', age: 34 },
     { id: 3, name: 'Charlie', age: 22 },
     { id: 4, name: 'Diana', age: 19 },
-    { id: 5, name: 'Diana', age: 21 },
 ]);
 
-// Derive state : total number of users
     const userCount = users.length;
 
     // Derive state :  average age of users

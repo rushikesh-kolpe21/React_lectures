@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/projects/Todo/Todo.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764650884063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764650884063,
+            "name": "Commit-0",
+            "content": "export const Todo = ()=> {\r\n    return (\r\n        <section>\r\n           <header>\r\n            <h1>Todo List</h1>\r\n           </header>\r\n           <section>\r\n            <form >\r\n                <div>\r\n                    <input\r\n                    type=\"text\"\r\n                    placeholder=\"Add your new todo\"\r\n                    />\r\n                    <button type=\"submit\">Add Task</button>\r\n                </div>\r\n            </form>\r\n           </section>\r\n        </section>\r\n    )\r\n}"
+        }
+    ]
+}

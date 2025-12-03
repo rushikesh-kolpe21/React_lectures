@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/components/ToogleSwitch.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1764642797148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764642877498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n+import React,{useState} from \"react\";\r\n+\r\n const ToogleSwitch = () => {\r\n+\r\n+    const [on, setOn] = useState (false);\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n         // creating a toogle switch\r\n"
+                },
+                {
+                    "date": 1764642956930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import React,{useState} from \"react\";\r\n \r\n const ToogleSwitch = () => {\r\n-\r\n     const [on, setOn] = useState (false);\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764643067499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React,{useState} from \"react\";\r\n \r\n-const ToogleSwitch = () => {\r\n+export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764643726153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,14 +4,14 @@\n     const [on, setOn] = useState (false);\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n-        // creating a toogle switch\r\n+       \r\n         <label className=\"toogle\">\r\n             <input type=\"checkbox\" \r\n             checked= {on}\r\n             />\r\n-            <span className=\"slider\"></span>\r\n+            <span className=\"slider\">{on ? \"ON\" : \"OFF\"}</span>\r\n         </label>\r\n         </>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764643771494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n        \r\n         <label className=\"toogle\">\r\n             <input type=\"checkbox\" \r\n             checked= {on}\r\n+            onChange = {handleChange}\r\n             />\r\n             <span className=\"slider\">{on ? \"ON\" : \"OFF\"}</span>\r\n         </label>\r\n         </>\r\n"
+                },
+                {
+                    "date": 1764643813830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,12 @@\n import React,{useState} from \"react\";\r\n \r\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n+\r\n+    const handleChange = (event) => {\r\n+        setOn (event.target.checked);\r\n+    }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n        \r\n"
+                },
+                {
+                    "date": 1764643838277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         <div>ToogleSwitch</div>\r\n        \r\n         <label className=\"toogle\">\r\n             <input type=\"checkbox\" \r\n-            checked= {on}\r\n+            // checked= {on}\r\n             onChange = {handleChange}\r\n             />\r\n             <span className=\"slider\">{on ? \"ON\" : \"OFF\"}</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1764643878584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n         <div>ToogleSwitch</div>\r\n        \r\n         <label className=\"toogle\">\r\n             <input type=\"checkbox\" \r\n-            // checked= {on}\r\n             onChange = {handleChange}\r\n             />\r\n             <span className=\"slider\">{on ? \"ON\" : \"OFF\"}</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1764644061820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n \r\n     const handleChange = (event) => {\r\n-        setOn (event.target.checked);\r\n+        setOn (!on);\r\n     }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764644078726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n \r\n     const handleChange = (event) => {\r\n-        setOn (!on);\r\n+        // setOn (!on);\r\n     }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764644095633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n \r\n     const handleChange = (event) => {\r\n-        // setOn (!on);\r\n+        setOn (!on);\r\n     }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764649016706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n \r\n     const handleChange = (event) => {\r\n-        setOn (!on);\r\n+        setOn(!on); // false to true , true to false for understanding go l to r\r\n     }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n"
+                },
+                {
+                    "date": 1764649639828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import React,{useState} from \"react\";\r\n \r\n+import { ImSwitch } from \"react-icons/im\";\r\n+\r\n export const ToogleSwitch = () => {\r\n     const [on, setOn] = useState (false);\r\n \r\n     const handleChange = (event) => {\r\n"
+                },
+                {
+                    "date": 1764649654900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n     }\r\n     return(\r\n         <>\r\n         <div>ToogleSwitch</div>\r\n+        <ImSwitch />\r\n        \r\n         <label className=\"toogle\">\r\n             <input type=\"checkbox\" \r\n             onChange = {handleChange}\r\n"
+                }
+            ],
+            "date": 1764642797148,
+            "name": "Commit-0",
+            "content": "const ToogleSwitch = () => {\r\n    return(\r\n        <>\r\n        <div>ToogleSwitch</div>\r\n        // creating a toogle switch\r\n        <label className=\"toogle\">\r\n            <input type=\"checkbox\" \r\n            checked= {on}\r\n            />\r\n            <span className=\"slider\"></span>\r\n        </label>\r\n        </>\r\n    )\r\n}"
+        }
+    ]
+}

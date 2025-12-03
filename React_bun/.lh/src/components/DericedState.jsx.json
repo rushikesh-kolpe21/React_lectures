@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1764612865841,
@@ -36,6 +36,46 @@
                 {
                     "date": 1764613460635,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n import { useState } from \"react\"\r\n \r\n-const [users, setUsers] = useState(\r\n+\r\n+\r\n+export const DericedState = () => {\r\n+    const [users, setUsers] = useState(\r\n     [\r\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n-\r\n-export const DericedState = () => {\r\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n"
+                },
+                {
+                    "date": 1764638192333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,10 @@\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n+\r\n+console.log(users.length);\r\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n"
+                },
+                {
+                    "date": 1764638638416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n \r\n-console.log(users.length);\r\n+    const userCount = users.length;\r\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n"
+                },
+                {
+                    "date": 1764638714943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,7 +21,8 @@\n                         <h2 key={index}>User name : {currUser.name} and {currUser.age} year old</h2>\r\n                     )\r\n                 })}\r\n             </ul>\r\n+            <h2>Total Users: {userCount}</h2>\r\n         </div>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764639175883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,11 @@\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n \r\n     const userCount = users.length;\r\n+\r\n+    // Derive state :  average age of users\r\n+    const averageAge = users.reduce((accum, currElem) => accum + currElem.age, 0) / userCount;\r\n     return (\r\n         <div>\r\n             <h1>User List</h1>\r\n             <ul>\r\n"
+                },
+                {
+                    "date": 1764639182706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,8 @@\n                     )\r\n                 })}\r\n             </ul>\r\n             <h2>Total Users: {userCount}</h2>\r\n+            <h2>Average Age: {averageAge.toFixed(2)}</h2>\r\n         </div>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764639195588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,8 @@\n                     )\r\n                 })}\r\n             </ul>\r\n             <h2>Total Users: {userCount}</h2>\r\n-            <h2>Average Age: {averageAge.toFixed(2)}</h2>\r\n+            <h2>Average Age: {averageAge}</h2>\r\n         </div>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764639223213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n-\r\n+// Derive state : total number of users\r\n     const userCount = users.length;\r\n \r\n     // Derive state :  average age of users\r\n     const averageAge = users.reduce((accum, currElem) => accum + currElem.age, 0) / userCount;\r\n"
+                },
+                {
+                    "date": 1764639406433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n+      { id: 4, name: 'Diana', age: 19 },\r\n ]);\r\n // Derive state : total number of users\r\n     const userCount = users.length;\r\n \r\n"
+                },
+                {
+                    "date": 1764639416943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n-      { id: 4, name: 'Diana', age: 19 },\r\n+      { id: 4, name: 'Diana', age: 21 },\r\n ]);\r\n // Derive state : total number of users\r\n     const userCount = users.length;\r\n \r\n"
+                },
+                {
+                    "date": 1764642961668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,16 @@\n import { useState } from \"react\"\r\n \r\n-\r\n-\r\n export const DericedState = () => {\r\n     const [users, setUsers] = useState(\r\n     [\r\n     { id: 1, name: 'Alice', age: 28 },\r\n     { id: 2, name: 'Bob', age: 34 },\r\n     { id: 3, name: 'Charlie', age: 22 },\r\n     { id: 4, name: 'Diana', age: 19 },\r\n-      { id: 4, name: 'Diana', age: 21 },\r\n+    { id: 5, name: 'Diana', age: 21 },\r\n ]);\r\n+\r\n // Derive state : total number of users\r\n     const userCount = users.length;\r\n \r\n     // Derive state :  average age of users\r\n"
                 }
             ],
             "date": 1764612865841,
