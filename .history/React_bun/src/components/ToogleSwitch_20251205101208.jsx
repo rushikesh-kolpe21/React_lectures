@@ -14,8 +14,7 @@ export const ToogleSwitch = () => {
         {/* <ImSwitch /> */}
        
         <label className="toogle">
-            <input 
-            type="checkbox" 
+            <input type="checkbox" 
             onChange = {handleChange}
             />
             <span className="slider">{on ? "ON" : "OFF"}</span>

@@ -16,22 +16,17 @@ export const Todo = ()=> {
         event.preventDefault(); // Prevent the default form submission behavior
         console.log("Form submitted with data:", inputData);
 
-         // validation 
-          // 1) If inputData is empty, do nothing
-        if(!inputData) return; // If inputData is empty, do nothing]
-
-        //2) If inputData already exists in todoList, do nothing
-        if(todoList.includes(inputData)) {
-            alert("Todo item already exists!");
-            onBtnSubmit();
-            return;
-        };
-
         
         // Add the new todo item to the todoList
         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.
         onBtnSubmit();
 
+        // validation 
+          // 1) If inputData is empty, do nothing
+        if(!inputData) return; // If inputData is empty, do nothing]
+
+        //2) If inputData already exists in todoList, do nothing
+        if(todoList.includes(inputData)) return;
 
     }
 

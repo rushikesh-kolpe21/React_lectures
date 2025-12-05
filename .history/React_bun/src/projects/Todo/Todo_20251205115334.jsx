@@ -16,23 +16,9 @@ export const Todo = ()=> {
         event.preventDefault(); // Prevent the default form submission behavior
         console.log("Form submitted with data:", inputData);
 
-         // validation 
-          // 1) If inputData is empty, do nothing
-        if(!inputData) return; // If inputData is empty, do nothing]
-
-        //2) If inputData already exists in todoList, do nothing
-        if(todoList.includes(inputData)) {
-            alert("Todo item already exists!");
-            onBtnSubmit();
-            return;
-        };
-
-        
         // Add the new todo item to the todoList
         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.
         onBtnSubmit();
-
-
     }
 
     // Handle button submit
@@ -42,11 +28,8 @@ export const Todo = ()=> {
     }
 
     // Handle delete button
-    const handleDelButton = (index) => {
+    const handleDelButton = () => {
         console.log("Delete button clicked");
-        // Logic to delete the todo item will go here
-        const updatedTodoList = todoList.filter((item, index) => index !== index);
-        setTodoList(updatedTodoList);
     }
 
 
@@ -71,7 +54,7 @@ export const Todo = ()=> {
             <ul>
                 {todoList.map((currTodo, index)=>{
                     return(
-                        <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>
+                        <li key={index}>{currTodo} <button onClick={handleDelButton}>Del</button></li>
                     )
                 })}
             </ul>

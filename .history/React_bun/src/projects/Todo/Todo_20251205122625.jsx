@@ -22,7 +22,6 @@ export const Todo = ()=> {
 
         //2) If inputData already exists in todoList, do nothing
         if(todoList.includes(inputData)) {
-            alert("Todo item already exists!");
             onBtnSubmit();
             return;
         };

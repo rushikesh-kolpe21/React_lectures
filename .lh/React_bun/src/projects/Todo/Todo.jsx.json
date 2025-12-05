@@ -1,0 +1,106 @@
+{
+    "sourceFile": "React_bun/src/projects/Todo/Todo.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1764910429944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764911442560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n+import {useState} from \"react\";\r\n+\r\n export const Todo = ()=> {\r\n+\r\n+    const [inputData, setInputData] = useState(\"\");\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n"
+                },
+                {
+                    "date": 1764911492484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n                 <div>\r\n                     <input\r\n                     type=\"text\"\r\n                     placeholder=\"Add your new todo\"\r\n+                    value= {inputData}\r\n+                    onChange={handleInputChange}\r\n                     />\r\n                     <button type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n"
+                },
+                {
+                    "date": 1764911880171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,13 @@\n \r\n export const Todo = ()=> {\r\n \r\n     const [inputData, setInputData] = useState(\"\");\r\n+\r\n+    // Handle input change\r\n+    const handleInputChange = (event)=>{\r\n+        setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n+    }\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n@@ -13,9 +18,9 @@\n                 <div>\r\n                     <input\r\n                     type=\"text\"\r\n                     placeholder=\"Add your new todo\"\r\n-                    value= {inputData}\r\n+                    value= {inputData} // for give react control on input field\r\n                     onChange={handleInputChange}\r\n                     />\r\n                     <button type=\"submit\">Add Task</button>\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1764911902645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n                 <div>\r\n                     <input\r\n                     type=\"text\"\r\n                     placeholder=\"Add your new todo\"\r\n-                    value= {inputData} // for give react control on input field\r\n+                    value= {inputData} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n                     <button type=\"submit\">Add Task</button>\r\n                 </div>\r\n"
+                },
+                {
+                    "date": 1764911916048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n \r\n     // Handle input change\r\n     const handleInputChange = (event)=>{\r\n         setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n+        \r\n     }\r\n     return (\r\n         <section>\r\n            <header>\r\n"
+                },
+                {
+                    "date": 1764913663688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,17 @@\n \r\n     // Handle input change\r\n     const handleInputChange = (event)=>{\r\n         setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n-        \r\n+    };\r\n+\r\n+    // Handle form submission\r\n+    const handleOnSubmit = ( event) => {\r\n+        event.preventDefault(); // Prevent the default form submission behavior\r\n+        console.log(\"Form submitted with data:\", inputData);\r\n     }\r\n+\r\n+\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n@@ -22,9 +29,9 @@\n                     placeholder=\"Add your new todo\"\r\n                     value= {inputData} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n-                    <button type=\"submit\">Add Task</button>\r\n+                    <button onSubmit={handleOnSubmit} type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n            </section>\r\n         </section>\r\n"
+                },
+                {
+                    "date": 1764913870543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n     };\r\n \r\n     // Handle form submission\r\n-    const handleOnSubmit = ( event) => {\r\n+    const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n     }\r\n \r\n@@ -21,17 +21,17 @@\n            <header>\r\n             <h1>Todo List</h1>\r\n            </header>\r\n            <section>\r\n-            <form >\r\n+            <form onSubmit={handleFormSubmit} >\r\n                 <div>\r\n                     <input\r\n                     type=\"text\"\r\n                     placeholder=\"Add your new todo\"\r\n                     value= {inputData} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n-                    <button onSubmit={handleOnSubmit} type=\"submit\">Add Task</button>\r\n+                    <button type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n            </section>\r\n         </section>\r\n"
+                },
+                {
+                    "date": 1764914109787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n                     placeholder=\"Add your new todo\"\r\n                     value= {inputData} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n-                    <button type=\"submit\">Add Task</button>\r\n+                    <button onSubmit={onBtnSubmit} type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n            </section>\r\n         </section>\r\n"
+                },
+                {
+                    "date": 1764914200702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,14 @@\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n     }\r\n \r\n+    // Handle button submit\r\n+    const onBtnSubmit = () => {\r\n+        setInputData(\"\"); // Clear the input field after submission\r\n+    }\r\n \r\n+\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n"
+                },
+                {
+                    "date": 1764915092450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n \r\n export const Todo = ()=> {\r\n \r\n     const [inputData, setInputData] = useState(\"\");\r\n+    const [todoList, setTodoList] = useState ([]);\r\n \r\n+\r\n     // Handle input change\r\n     const handleInputChange = (event)=>{\r\n         setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n     };\r\n@@ -17,8 +19,9 @@\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n         setInputData(\"\"); // Clear the input field after submission\r\n+        inputData()\r\n     }\r\n \r\n \r\n     return (\r\n"
+                },
+                {
+                    "date": 1764915145309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,12 @@\n     // Handle form submission\r\n     const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n+\r\n+        // Add the new todo item to the todoList\r\n+        setTodoList([...todoList, inputData]);\r\n+        onBtnSubmit();\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n"
+                },
+                {
+                    "date": 1764915152106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]);\r\n-        onBtnSubmit();\r\n+        // onBtnSubmit();\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n"
+                },
+                {
+                    "date": 1764915324636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]);\r\n-        // onBtnSubmit();\r\n+        onBtnSubmit();\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n@@ -44,8 +44,16 @@\n                     />\r\n                     <button onSubmit={onBtnSubmit} type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n+\r\n+            <ul>\r\n+                {todoList.map((currTodo, index)=>{\r\n+                    return(\r\n+                        <li key={index}>{currTodo}</li>\r\n+                    )\r\n+                })}\r\n+            </ul>\r\n            </section>\r\n         </section>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764915814438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export const Todo = ()=> {\r\n \r\n     const [inputData, setInputData] = useState(\"\");\r\n-    const [todoList, setTodoList] = useState ([]);\r\n+    const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items\r\n \r\n \r\n     // Handle input change\r\n     const handleInputChange = (event)=>{\r\n@@ -16,9 +16,9 @@\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n         // Add the new todo item to the todoList\r\n-        setTodoList([...todoList, inputData]);\r\n+        setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n     }\r\n \r\n     // Handle button submit\r\n@@ -26,9 +26,14 @@\n         setInputData(\"\"); // Clear the input field after submission\r\n         inputData()\r\n     }\r\n \r\n+    // Handle delete button\r\n+    const handleDelButton = () => {\r\n+        console.log(\"Delete button clicked\");\r\n+    }\r\n \r\n+\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n@@ -48,9 +53,9 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <li key={index}>{currTodo}</li>\r\n+                        <li key={index}>{currTodo} <button onClick={handleDelButton}>Del</button></li>\r\n                     )\r\n                 })}\r\n             </ul>\r\n            </section>\r\n"
+                },
+                {
+                    "date": 1764916062834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,11 @@\n \r\n     // Handle delete button\r\n     const handleDelButton = () => {\r\n         console.log(\"Delete button clicked\");\r\n+        // Logic to delete the todo item will go here\r\n+        const updatedTodoList = todoList.filter((item, index) => index !== index);\r\n+        setTodoList(updatedTodoList);\r\n     }\r\n \r\n \r\n     return (\r\n"
+                },
+                {
+                    "date": 1764916077323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         inputData()\r\n     }\r\n \r\n     // Handle delete button\r\n-    const handleDelButton = () => {\r\n+    const handleDelButton = (item) => {\r\n         console.log(\"Delete button clicked\");\r\n         // Logic to delete the todo item will go here\r\n         const updatedTodoList = todoList.filter((item, index) => index !== index);\r\n         setTodoList(updatedTodoList);\r\n"
+                },
+                {
+                    "date": 1764916146102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         inputData()\r\n     }\r\n \r\n     // Handle delete button\r\n-    const handleDelButton = (item) => {\r\n+    const handleDelButton = (index) => {\r\n         console.log(\"Delete button clicked\");\r\n         // Logic to delete the todo item will go here\r\n         const updatedTodoList = todoList.filter((item, index) => index !== index);\r\n         setTodoList(updatedTodoList);\r\n@@ -56,9 +56,9 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <li key={index}>{currTodo} <button onClick={handleDelButton}>Del</button></li>\r\n+                        <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n                     )\r\n                 })}\r\n             </ul>\r\n            </section>\r\n"
+                },
+                {
+                    "date": 1764917340904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,11 @@\n     const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n+        //  // If inputData is empty, do nothing\r\n+        if(!inputData) return; // If inputData is empty, do nothing\r\n+\r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n     }\r\n"
+                },
+                {
+                    "date": 1764917523429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,14 +15,20 @@\n     const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n-        //  // If inputData is empty, do nothing\r\n-        if(!inputData) return; // If inputData is empty, do nothing\r\n-\r\n+        \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n+\r\n+        // validation \r\n+          // 1) If inputData is empty, do nothing\r\n+        if(!inputData) return; // If inputData is empty, do nothing]\r\n+\r\n+        //2) If inputData already exists in todoList, do nothing\r\n+        if(todoList.includes(inputData)) return;\r\n+\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n"
+                },
+                {
+                    "date": 1764917734238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,20 +15,21 @@\n     const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n         console.log(\"Form submitted with data:\", inputData);\r\n \r\n+         // validation \r\n+          // 1) If inputData is empty, do nothing\r\n+        if(!inputData) return; // If inputData is empty, do nothing]\r\n+\r\n+        //2) If inputData already exists in todoList, do nothing\r\n+        if(todoList.includes(inputData)) return;\r\n+\r\n         \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n \r\n-        // validation \r\n-          // 1) If inputData is empty, do nothing\r\n-        if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n-        //2) If inputData already exists in todoList, do nothing\r\n-        if(todoList.includes(inputData)) return;\r\n-\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n"
+                },
+                {
+                    "date": 1764917785820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,12 @@\n           // 1) If inputData is empty, do nothing\r\n         if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n-        if(todoList.includes(inputData)) return;\r\n+        if(todoList.includes(inputData)) {\r\n+            onBtnSubmit();\r\n+            return;\r\n+        };\r\n \r\n         \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n"
+                },
+                {
+                    "date": 1764917799376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n         if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n         if(todoList.includes(inputData)) {\r\n+            alert(\"Todo item already exists!\");\r\n             onBtnSubmit();\r\n             return;\r\n         };\r\n \r\n"
+                }
+            ],
+            "date": 1764910429944,
+            "name": "Commit-0",
+            "content": "export const Todo = ()=> {\r\n    return (\r\n        <section>\r\n           <header>\r\n            <h1>Todo List</h1>\r\n           </header>\r\n           <section>\r\n            <form >\r\n                <div>\r\n                    <input\r\n                    type=\"text\"\r\n                    placeholder=\"Add your new todo\"\r\n                    />\r\n                    <button type=\"submit\">Add Task</button>\r\n                </div>\r\n            </form>\r\n           </section>\r\n        </section>\r\n    )\r\n}"
+        }
+    ]
+}

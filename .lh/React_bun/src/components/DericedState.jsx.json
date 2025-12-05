@@ -1,0 +1,22 @@
+{
+    "sourceFile": "React_bun/src/components/DericedState.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1764908403960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764909659750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     )\r\n }\r\n \r\n \r\n-//👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.\r\n+// 👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.\r\n \r\n // Tumhare pass ek original state hai:\r\n // const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);\r\n \r\n"
+                }
+            ],
+            "date": 1764908403960,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\"\r\n\r\nexport const DericedState = () => {\r\n    const [users, setUsers] = useState(\r\n    [\r\n    { id: 1, name: 'Alice', age: 28 },\r\n    { id: 2, name: 'Bob', age: 34 },\r\n    { id: 3, name: 'Charlie', age: 22 },\r\n    { id: 4, name: 'Diana', age: 19 },\r\n    { id: 5, name: 'Diana', age: 21 },\r\n]);\r\n\r\n// Derive state : total number of users\r\n    const userCount = users.length;\r\n\r\n    // Derive state :  average age of users\r\n    const averageAge = users.reduce((accum, currElem) => accum + currElem.age, 0) / userCount;\r\n \r\n    return (\r\n        <div>\r\n            <h1>User List</h1>\r\n            <ul>\r\n                {users.map((currUser, index)=>{\r\n                    return(\r\n                        <h2 key={index}>User name : {currUser.name} and {currUser.age} year old</h2>\r\n                    )\r\n                })}\r\n            </ul>\r\n            <h2>Total Users: {userCount}</h2>\r\n            <h2>Average Age: {averageAge}</h2>\r\n        </div>\r\n    )\r\n}\r\n\r\n\r\n//👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.\r\n\r\n// Tumhare pass ek original state hai:\r\n// const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);\r\n\r\n// ✅ Sahi way:\r\n\r\n// const total = numbers.reduce((a, b) => a + b, 0);"
+        }
+    ]
+}

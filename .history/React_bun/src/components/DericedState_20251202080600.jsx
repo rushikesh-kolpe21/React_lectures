@@ -15,7 +15,6 @@ export const DericedState = () => {
 
     // Derive state :  average age of users
     const averageAge = users.reduce((accum, currElem) => accum + currElem.age, 0) / userCount;
- 
     return (
         <div>
             <h1>User List</h1>
@@ -31,13 +30,3 @@ export const DericedState = () => {
         </div>
     )
 }
-
-
-// 👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.
-
-// Tumhare pass ek original state hai:
-// const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
-
-// ✅ Sahi way:
-
-// const total = numbers.reduce((a, b) => a + b, 0);

@@ -1,0 +1,26 @@
+import {useState} from "react";
+
+export const Todo = ()=> {
+
+    const [inputData, setInputData] = useState("");
+    return (
+        <section>
+           <header>
+            <h1>Todo List</h1>
+           </header>
+           <section>
+            <form >
+                <div>
+                    <input
+                    type="text"
+                    placeholder="Add your new todo"
+                    value= {inputData}
+                    onChange={handleInputChange}
+                    />
+                    <button type="submit">Add Task</button>
+                </div>
+            </form>
+           </section>
+        </section>
+    )
+}

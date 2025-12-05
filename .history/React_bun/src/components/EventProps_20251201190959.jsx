@@ -20,6 +20,7 @@ export const EventProps = () => {
 }
 
 // new file
+
 const WelcomeUser = (props)=>{
     const handleGreeting=()=>{
         console.log('hey user, welcome');

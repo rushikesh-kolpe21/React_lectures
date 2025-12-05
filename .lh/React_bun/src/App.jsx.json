@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1764175044260,
@@ -16,6 +16,14 @@
                 {
                     "date": 1764176455491,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n       <img src=\"money_image.jpg\" alt=\"honey hest\"\n       width=\"39%\" height=\"39%\" />\n      </div>\n \n-     <h2>Name: Money Heist</h2>\n+     <h2>Name: Money Heistgfv</h2>\n      <h3>Rating : 5</h3>\n      <h4>Summer: Lorem ipsum dolor, sit amet consectetur \n       adipisicing elit. Architecto aperiam in veniam similique,\n        tempore vel atque expedita sed. Atque impedit eum vel corporis \n"
+                },
+                {
+                    "date": 1764909679704,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,23 @@\n+import { DericedState } from \"./components/DericedState\";\n+import { EventProps } from \"./components/EventProps\";\n+import { Netflix } from \"./components/Netflix\";\n+import { Profile } from \"./components/Profile\";\n+import { ToogleSwitch } from \"./components/ToogleSwitch\";\n+import { Todo } from \"./projects/Todo/Todo\";\n+\n  export const App =()=> {\n+\n+  const age = 17;\n+\n   return(\n     <>\n-    <div>\n-       <h1>Shree Ganesh</h1>\n-\n-     \n-      <img src=\"money_image.jpg\" alt=\"honey hest\"\n-      width=\"39%\" height=\"39%\" />\n-     </div>\n-\n-     <h2>Name: Money Heistgfv</h2>\n-     <h3>Rating : 5</h3>\n-     <h4>Summer: Lorem ipsum dolor, sit amet consectetur \n-      adipisicing elit. Architecto aperiam in veniam similique,\n-       tempore vel atque expedita sed. Atque impedit eum vel corporis \n-      perspiciatis nemo ex blanditiis cum in facilis!</h4>\n-  \n+    {/* <Netflix/> */}\n+    {/* <Profile/> */}\n+    {/* <EventProps/> */}\n+    {/* <DericedState/> */}\n+    <ToogleSwitch/>\n+    {/* <section>{<Todo />}</section> */}\n     </>\n   )\n }                                                          \n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764910414266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n     {/* <Netflix/> */}\n     {/* <Profile/> */}\n     {/* <EventProps/> */}\n     {/* <DericedState/> */}\n-    <ToogleSwitch/>\n-    {/* <section>{<Todo />}</section> */}\n+    {/* <ToogleSwitch/> */}\n+    <section>{<Todo />}</section>\n     </>\n   )\n }                                                          \n   \n\\ No newline at end of file\n"
                 }
             ],
             "date": 1764175044260,

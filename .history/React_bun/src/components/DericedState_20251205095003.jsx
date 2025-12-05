@@ -33,7 +33,7 @@ export const DericedState = () => {
 }
 
 
-// 👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.
+//👉 Aisa data jo directly state se nikalta hai, jise alag se state banane ki zarurat nahi hoti.
 
 // Tumhare pass ek original state hai:
 // const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);

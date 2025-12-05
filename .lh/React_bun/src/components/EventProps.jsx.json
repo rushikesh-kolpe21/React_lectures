@@ -1,0 +1,18 @@
+{
+    "sourceFile": "React_bun/src/components/EventProps.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764909659720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764909659720,
+            "name": "Commit-0",
+            "content": "// # 27\r\nexport const EventProps = () => {\r\n    // parent componet\r\n    const HandleWelcomeUser=(user)=>{\r\n        alert(`hey,${user}`);\r\n    };\r\n\r\n    const handleHover=()=>{\r\n        alert(\"hey thx for hovering me\");\r\n    }\r\n\r\n    return(  // child compentent // and pass props to the welcomeUser// onbtnClickj this is only event kuch be rak sakto ho\r\n        <>\r\n        <WelcomeUser\r\n         onbtnClick={()=> HandleWelcomeUser('vinod')}\r\n            onMouseEnter={handleHover}\r\n        />\r\n        </>\r\n    )\r\n}\r\n\r\n// new file\r\nconst WelcomeUser = (props)=>{\r\n    const handleGreeting=()=>{\r\n        console.log('hey user, welcome');\r\n        props.onClick();\r\n    }\r\n    return(\r\n        <>\r\n             <button onClick={props.onbtnClick}>xlick</button>\r\n             <button onMouseEnter={props.onMouseEnter}>Hover me</button>\r\n             <button onClick={handleGreeting}>Greeting</button>\r\n        </>\r\n    )\r\n}"
+        }
+    ]
+}
