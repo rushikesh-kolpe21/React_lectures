@@ -42,13 +42,9 @@ export const Todo = ()=> {
     // Handle delete button
     const handleDelButton = (index) => {
         console.log("Delete button clicked");
-        const updatedTodoList = todoList.filter((item, idx)=> idx !== index);
+        // Logic to delete the todo item will go here
+        const updatedTodoList = todoList.filter((item, index) => index !== index);
         setTodoList(updatedTodoList);
-    }
-
-    // Handle clear all button
-    const handleClearAll=()=>{
-        setTodoList([]); // Clear the entire todo list by setting it to an empty array
     }
 
 
@@ -68,7 +64,7 @@ export const Todo = ()=> {
         <section>
            <header>
             <h1>Todo List</h1>
-            <h2>{dateTime}</h2>
+            <h2>{dateTime} - TIME </h2>
            </header>
            <section>
             <form onSubmit={handleFormSubmit} >
@@ -89,7 +85,6 @@ export const Todo = ()=> {
                         <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>
                     )
                 })}
-                <button onClick={handleClearAll}>Clear All</button>
             </ul>
            </section>
         </section>

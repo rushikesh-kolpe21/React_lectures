@@ -46,11 +46,6 @@ export const Todo = ()=> {
         setTodoList(updatedTodoList);
     }
 
-    // Handle clear all button
-    const handleClearAll=()=>{
-        setTodoList([]); // Clear the entire todo list by setting it to an empty array
-    }
-
 
      //TODO DATE - TIME
     useEffect(()=> {

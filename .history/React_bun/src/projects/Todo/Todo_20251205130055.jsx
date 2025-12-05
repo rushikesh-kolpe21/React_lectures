@@ -1,10 +1,10 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 export const Todo = ()=> {
 
     const [inputData, setInputData] = useState("");
     const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items
-    const [dateTime, setDateTime] = useState ();
+
 
     // Handle input change
     const handleInputChange = (event)=>{
@@ -31,6 +31,8 @@ export const Todo = ()=> {
         // Add the new todo item to the todoList
         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.
         onBtnSubmit();
+
+
     }
 
     // Handle button submit
@@ -42,33 +44,16 @@ export const Todo = ()=> {
     // Handle delete button
     const handleDelButton = (index) => {
         console.log("Delete button clicked");
-        const updatedTodoList = todoList.filter((item, idx)=> idx !== index);
+        // Logic to delete the todo item will go here
+        const updatedTodoList = todoList.filter((item, index) => index !== index);
         setTodoList(updatedTodoList);
     }
 
-    // Handle clear all button
-    const handleClearAll=()=>{
-        setTodoList([]); // Clear the entire todo list by setting it to an empty array
-    }
-
-
-     //TODO DATE - TIME
-    useEffect(()=> {
-        const intervalId = setInterval(() => {
-            const now  = new Date();
-            const formattedDateTime = now.toLocaleString();
-            setDateTime(formattedDateTime);
-         }, 1000);
-        
-         return ()=> clearInterval(intervalId); // Cleanup interval on component unmount
-    }, [] ); 
-    
 
     return (
         <section>
            <header>
             <h1>Todo List</h1>
-            <h2>{dateTime}</h2>
            </header>
            <section>
             <form onSubmit={handleFormSubmit} >
@@ -89,7 +74,6 @@ export const Todo = ()=> {
                         <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>
                     )
                 })}
-                <button onClick={handleClearAll}>Clear All</button>
             </ul>
            </section>
         </section>
