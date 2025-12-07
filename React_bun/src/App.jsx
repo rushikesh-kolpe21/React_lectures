@@ -3,6 +3,7 @@ import { EventProps } from "./components/EventProps";
 import { Netflix } from "./components/Netflix";
 import { Profile } from "./components/Profile";
 import { ToogleSwitch } from "./components/ToogleSwitch";
+import { Key } from "./key";
 import { Todo } from "./projects/Todo/Todo";
 
  export const App =()=> {
@@ -16,7 +17,8 @@ import { Todo } from "./projects/Todo/Todo";
     {/* <EventProps/> */}
     {/* <DericedState/> */}
     {/* <ToogleSwitch/> */}
-    <section>{<Todo />}</section>
+    {/* <section>{<Todo />}</section> */}
+    <Key />
     </>
   )
 }                                                          

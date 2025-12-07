@@ -1,48 +1,41 @@
 import {useEffect, useState} from "react";
+import { TodoForm } from "./TodoForm";
+import { TodoList } from "./TodoList";
+import { TodoDateTime } from "./TodoDateTime";
 
 export const Todo = ()=> {
 
-    const [inputData, setInputData] = useState("");
+    
     const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items
     const [dateTime, setDateTime] = useState ();
 
-    // Handle input change
-    const handleInputChange = (event)=>{
-        setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.
-    };
-
     // Handle form submission
-    const handleFormSubmit = ( event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
-        console.log("Form submitted with data:", inputData);
-
+    const handleFormSubmit = (inputData) => {
+        const {id, content, checked} = inputData;
          // validation 
-          // 1) If inputData is empty, do nothing
-        if(!inputData) return; // If inputData is empty, do nothing]
+         // 1) If inputData is empty, do nothing
+        if(!content) return; // If inputData is empty, do nothing]
 
         //2) If inputData already exists in todoList, do nothing
-        if(todoList.includes(inputData)) {
+        // if(todoList.includes(inputData)) {
+        //     alert("Todo item already exists!");
+        //     return;
+        // };
+
+        const ifTodoContentMatched = todoList.find((item) => item.content === content);
+        if(ifTodoContentMatched) {
             alert("Todo item already exists!");
-            onBtnSubmit();
             return;
-        };
-
-        
-        // Add the new todo item to the todoList
-        setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.
-        onBtnSubmit();
+        } 
+        setTodoList((prevTodoList) => [...prevTodoList, {id, content, checked}]);
+    
     }
 
-    // Handle button submit
-    const onBtnSubmit = () => {
-        setInputData(""); // Clear the input field after submission
-        // inputData()  //
-    }
-
+   
     // Handle delete button
-    const handleDelButton = (index) => {
+    const handleDelButton = (value) => {
         console.log("Delete button clicked");
-        const updatedTodoList = todoList.filter((item, idx)=> idx !== index);
+        const updatedTodoList = todoList.filter((currTodo)=> currTodo.content !== value);
         setTodoList(updatedTodoList);
     }
 
@@ -68,25 +61,20 @@ export const Todo = ()=> {
         <section>
            <header>
             <h1>Todo List</h1>
-            <h2>{dateTime}</h2>
+            <TodoDateTime dateTime={dateTime} />
            </header>
-           <section>
-            <form onSubmit={handleFormSubmit} >
-                <div>
-                    <input
-                    type="text"
-                    placeholder="Add your new todo"
-                    value= {inputData} // for give react control on input field and set value from state
-                    onChange={handleInputChange}
-                    />
-                    <button onSubmit={onBtnSubmit} type="submit">Add Task</button>
-                </div>
-            </form>
+           <section> 
+           
+           
+           <TodoForm onAddTodo={handleFormSubmit} />
 
             <ul>
-                {todoList.map((currTodo, index)=>{
+                {todoList.map((currTodo)=>{
                     return(
-                        <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>
+                        <TodoList 
+                        key={currTodo.id}
+                         data ={currTodo.content} 
+                         handleDelButton={handleDelButton} />
                     )
                 })}
                 <button onClick={handleClearAll}>Clear All</button>
