@@ -1,0 +1,18 @@
+{
+    "sourceFile": "React_bun/src/projects/Todo/TodoDateTime.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764986787083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764986787083,
+            "name": "Commit-0",
+            "content": "export const TodoDateTime = ({dateTime}) => {\r\n    return (\r\n        <h2>{dateTime}</h2>\r\n    );\r\n}   "
+        }
+    ]
+}

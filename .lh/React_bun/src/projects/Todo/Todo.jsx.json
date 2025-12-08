@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 23,
+            "activePatchIndex": 52,
             "patches": [
                 {
                     "date": 1764910429944,
@@ -100,6 +100,122 @@
                 {
                     "date": 1764919855312,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n         setInputData(\"\"); // Clear the input field after submission\r\n-        inputData()\r\n+        // inputData()  //\r\n     }\r\n \r\n     // Handle delete button\r\n     const handleDelButton = (index) => {\r\n"
+                },
+                {
+                    "date": 1764984404681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n-import {useState} from \"react\";\r\n+import {useEffect, useState} from \"react\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     const [inputData, setInputData] = useState(\"\");\r\n     const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items\r\n+    const [dateTime, setDateTime] = useState ();\r\n \r\n-\r\n     // Handle input change\r\n     const handleInputChange = (event)=>{\r\n         setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n     };\r\n@@ -30,10 +30,8 @@\n         \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n-\r\n-\r\n     }\r\n \r\n     // Handle button submit\r\n     const onBtnSubmit = () => {\r\n@@ -43,38 +41,47 @@\n \r\n     // Handle delete button\r\n     const handleDelButton = (index) => {\r\n         console.log(\"Delete button clicked\");\r\n-        // Logic to delete the todo item will go here\r\n-        const updatedTodoList = todoList.filter((item, index) => index !== index);\r\n+        const updatedTodoList = todoList.filter((item, idx)=> idx !== index);\r\n         setTodoList(updatedTodoList);\r\n     }\r\n \r\n+    // Handle clear all button\r\n+    const handleClearAll=()=>{\r\n+        setTodoList([]); // Clear the entire todo list by setting it to an empty array\r\n+    }\r\n \r\n+\r\n+     //TODO DATE - TIME\r\n+    useEffect(()=> {\r\n+        const intervalId = setInterval(() => {\r\n+            const now  = new Date();\r\n+            const formattedDateTime = now.toLocaleString();\r\n+            setDateTime(formattedDateTime);\r\n+         }, 1000);\r\n+        \r\n+         return ()=> clearInterval(intervalId); // Cleanup interval on component unmount\r\n+    }, [] ); \r\n+    \r\n+\r\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n+            <h2>{dateTime}</h2>\r\n            </header>\r\n            <section>\r\n-            <form onSubmit={handleFormSubmit} >\r\n-                <div>\r\n-                    <input\r\n-                    type=\"text\"\r\n-                    placeholder=\"Add your new todo\"\r\n-                    value= {inputData} // for give react control on input field and set value from state\r\n-                    onChange={handleInputChange}\r\n-                    />\r\n-                    <button onSubmit={onBtnSubmit} type=\"submit\">Add Task</button>\r\n-                </div>\r\n-            </form>\r\n+           \r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <li key={index}>{currTodo} <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n+                        <li key={index}>{currTodo}\r\n+                         <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n                     )\r\n                 })}\r\n+                <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n            </section>\r\n         </section>\r\n     )\r\n"
+                },
+                {
+                    "date": 1764984429281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,8 +71,10 @@\n             <h2>{dateTime}</h2>\r\n            </header>\r\n            <section>\r\n            \r\n+           // Todo Form\r\n+           <TodoForm/>\r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n"
+                },
+                {
+                    "date": 1764984466338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import {useEffect, useState} from \"react\";\r\n+import { TodoForm } from \"./TodoForm\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     const [inputData, setInputData] = useState(\"\");\r\n@@ -72,9 +73,9 @@\n            </header>\r\n            <section>\r\n            \r\n            // Todo Form\r\n-           <TodoForm/>\r\n+           <TodoForm />\r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n"
+                },
+                {
+                    "date": 1764984848545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,13 @@\n import { TodoForm } from \"./TodoForm\";\r\n \r\n export const Todo = ()=> {\r\n \r\n-    const [inputData, setInputData] = useState(\"\");\r\n+    \r\n     const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items\r\n     const [dateTime, setDateTime] = useState ();\r\n \r\n-    // Handle input change\r\n-    const handleInputChange = (event)=>{\r\n-        setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n-    };\r\n+   \r\n \r\n     // Handle form submission\r\n     const handleFormSubmit = ( event) => {\r\n         event.preventDefault(); // Prevent the default form submission behavior\r\n@@ -73,9 +70,9 @@\n            </header>\r\n            <section>\r\n            \r\n            // Todo Form\r\n-           <TodoForm />\r\n+           <TodoForm onAdd={handleFormSubmit} />\r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n"
+                },
+                {
+                    "date": 1764984913050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n            </header>\r\n            <section>\r\n            \r\n            // Todo Form\r\n-           <TodoForm onAdd={handleFormSubmit} />\r\n+           <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n"
+                },
+                {
+                    "date": 1764985119619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,10 @@\n \r\n    \r\n \r\n     // Handle form submission\r\n-    const handleFormSubmit = ( event) => {\r\n-        event.preventDefault(); // Prevent the default form submission behavior\r\n-        console.log(\"Form submitted with data:\", inputData);\r\n-\r\n+    const handleFormSubmit = (inputData) => {\r\n+        \r\n          // validation \r\n           // 1) If inputData is empty, do nothing\r\n         if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n"
+                },
+                {
+                    "date": 1764985292630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,14 +28,9 @@\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n         onBtnSubmit();\r\n     }\r\n \r\n-    // Handle button submit\r\n-    const onBtnSubmit = () => {\r\n-        setInputData(\"\"); // Clear the input field after submission\r\n-        // inputData()  //\r\n-    }\r\n-\r\n+   \r\n     // Handle delete button\r\n     const handleDelButton = (index) => {\r\n         console.log(\"Delete button clicked\");\r\n         const updatedTodoList = todoList.filter((item, idx)=> idx !== index);\r\n"
+                },
+                {
+                    "date": 1764985676910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n \r\n         \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n-        onBtnSubmit();\r\n+       \r\n     }\r\n \r\n    \r\n     // Handle delete button\r\n"
+                },
+                {
+                    "date": 1764985706661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n         if(todoList.includes(inputData)) {\r\n             alert(\"Todo item already exists!\");\r\n-            onBtnSubmit();\r\n+            \r\n             return;\r\n         };\r\n \r\n         \r\n"
+                },
+                {
+                    "date": 1764986178467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,24 +6,20 @@\n     \r\n     const [todoList, setTodoList] = useState ([]); // Initial empty array for todo items\r\n     const [dateTime, setDateTime] = useState ();\r\n \r\n-   \r\n-\r\n     // Handle form submission\r\n     const handleFormSubmit = (inputData) => {\r\n         \r\n          // validation \r\n-          // 1) If inputData is empty, do nothing\r\n+         // 1) If inputData is empty, do nothing\r\n         if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n         if(todoList.includes(inputData)) {\r\n             alert(\"Todo item already exists!\");\r\n-            \r\n             return;\r\n         };\r\n-\r\n         \r\n         // Add the new todo item to the todoList\r\n         setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n        \r\n"
+                },
+                {
+                    "date": 1764986356544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import {useEffect, useState} from \"react\";\r\n import { TodoForm } from \"./TodoForm\";\r\n+import { TodoList } from \"./TodoList\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     \r\n@@ -61,17 +62,9 @@\n            \r\n            // Todo Form\r\n            <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n-            <ul>\r\n-                {todoList.map((currTodo, index)=>{\r\n-                    return(\r\n-                        <li key={index}>{currTodo}\r\n-                         <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n-                    )\r\n-                })}\r\n-                <button onClick={handleClearAll}>Clear All</button>\r\n-            </ul>\r\n+          <TodoList/>\r\n            </section>\r\n         </section>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764986543963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import {useEffect, useState} from \"react\";\r\n import { TodoForm } from \"./TodoForm\";\r\n-import { TodoList } from \"./TodoList\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     \r\n@@ -62,9 +61,16 @@\n            \r\n            // Todo Form\r\n            <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n-          <TodoList/>\r\n+            <ul>\r\n+                {todoList.map((currTodo, index)=>{\r\n+                    return(\r\n+                        <TodoList key={index} currTodo={currTodo}  handleDelButton={handleDelButton} />\r\n+                    )\r\n+                })}\r\n+                <button onClick={handleClearAll}>Clear All</button>\r\n+            </ul>\r\n            </section>\r\n         </section>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764986589247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import {useEffect, useState} from \"react\";\r\n import { TodoForm } from \"./TodoForm\";\r\n+import { TodoList } from \"./TodoList\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     \r\n"
+                },
+                {
+                    "date": 1764986656381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <TodoList key={index} currTodo={currTodo}  handleDelButton={handleDelButton} />\r\n+                        <TodoList key={index} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1764986677306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <TodoList key={index} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n+                        <TodoList currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1764986692300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,9 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n                     return(\r\n-                        <TodoList currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n+                        <TodoList key={index} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1764986815419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n     return (\r\n         <section>\r\n            <header>\r\n             <h1>Todo List</h1>\r\n-            <h2>{dateTime}</h2>\r\n+            <TodoDateTime dateTime={dateTime} />\r\n            </header>\r\n            <section>\r\n            \r\n            // Todo Form\r\n"
+                },
+                {
+                    "date": 1764986840647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import {useEffect, useState} from \"react\";\r\n import { TodoForm } from \"./TodoForm\";\r\n import { TodoList } from \"./TodoList\";\r\n+import { TodoDateTime } from \"./TodoDateTime\";\r\n \r\n export const Todo = ()=> {\r\n \r\n     \r\n"
+                },
+                {
+                    "date": 1764986892375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n             <TodoDateTime dateTime={dateTime} />\r\n            </header>\r\n            <section>\r\n            \r\n-           // Todo Form\r\n+           \r\n            <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n             <ul>\r\n                 {todoList.map((currTodo, index)=>{\r\n"
+                },
+                {
+                    "date": 1764990212502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n            <header>\r\n             <h1>Todo List</h1>\r\n             <TodoDateTime dateTime={dateTime} />\r\n            </header>\r\n-           <section>\r\n+           <section> \r\n            \r\n            \r\n            <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n"
+                },
+                {
+                    "date": 1764990897325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     const [dateTime, setDateTime] = useState ();\r\n \r\n     // Handle form submission\r\n     const handleFormSubmit = (inputData) => {\r\n-        \r\n+        const {id, content, checked} = inputData;\r\n          // validation \r\n          // 1) If inputData is empty, do nothing\r\n         if(!inputData) return; // If inputData is empty, do nothing]\r\n \r\n"
+                },
+                {
+                    "date": 1764991104425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     const handleFormSubmit = (inputData) => {\r\n         const {id, content, checked} = inputData;\r\n          // validation \r\n          // 1) If inputData is empty, do nothing\r\n-        if(!inputData) return; // If inputData is empty, do nothing]\r\n+        if(!content) return; // If inputData is empty, do nothing]\r\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n         if(todoList.includes(inputData)) {\r\n             alert(\"Todo item already exists!\");\r\n"
+                },
+                {
+                    "date": 1764993321158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,16 +16,18 @@\n          // 1) If inputData is empty, do nothing\r\n         if(!content) return; // If inputData is empty, do nothing]\r\n \r\n         //2) If inputData already exists in todoList, do nothing\r\n-        if(todoList.includes(inputData)) {\r\n+        // if(todoList.includes(inputData)) {\r\n+        //     alert(\"Todo item already exists!\");\r\n+        //     return;\r\n+        // };\r\n+\r\n+        const ifTodoContentMatched = todoList.find((item) => item.content === content);\r\n+        if(ifTodoContentMatched) {\r\n             alert(\"Todo item already exists!\");\r\n             return;\r\n-        };\r\n-        \r\n-        // Add the new todo item to the todoList\r\n-        setTodoList([...todoList, inputData]); // Spread operator se existing todoList ke sare items ko le raha hai aur usme naya inputData add kar raha hai.\r\n-       \r\n+        } \r\n     }\r\n \r\n    \r\n     // Handle delete button\r\n"
+                },
+                {
+                    "date": 1764993457789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,10 @@\n         const ifTodoContentMatched = todoList.find((item) => item.content === content);\r\n         if(ifTodoContentMatched) {\r\n             alert(\"Todo item already exists!\");\r\n             return;\r\n+\r\n+            setTodoList((prevTodoList) => [...prevTodoList, {id, content, checked}]);\r\n         } \r\n     }\r\n \r\n    \r\n"
+                },
+                {
+                    "date": 1764993538530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,11 +25,11 @@\n         const ifTodoContentMatched = todoList.find((item) => item.content === content);\r\n         if(ifTodoContentMatched) {\r\n             alert(\"Todo item already exists!\");\r\n             return;\r\n-\r\n-            setTodoList((prevTodoList) => [...prevTodoList, {id, content, checked}]);\r\n         } \r\n+        setTodoList((prevTodoList) => [...prevTodoList, {id:id, content:content, checked:checked}]);\r\n+    \r\n     }\r\n \r\n    \r\n     // Handle delete button\r\n"
+                },
+                {
+                    "date": 1764993557859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n         if(ifTodoContentMatched) {\r\n             alert(\"Todo item already exists!\");\r\n             return;\r\n         } \r\n-        setTodoList((prevTodoList) => [...prevTodoList, {id:id, content:content, checked:checked}]);\r\n+        setTodoList((prevTodoList) => [...prevTodoList, {id, content, checked}]);\r\n     \r\n     }\r\n \r\n    \r\n"
+                },
+                {
+                    "date": 1764994099299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,11 +68,11 @@\n            \r\n            <TodoForm onAddTodo={handleFormSubmit} />\r\n \r\n             <ul>\r\n-                {todoList.map((currTodo, index)=>{\r\n+                {todoList.map((currTodo)=>{\r\n                     return(\r\n-                        <TodoList key={index} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n+                        <TodoList key={currTodo.id} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1764994312086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,12 @@\n \r\n             <ul>\r\n                 {todoList.map((currTodo)=>{\r\n                     return(\r\n-                        <TodoList key={currTodo.id} currTodo={currTodo} index={index}  handleDelButton={handleDelButton} />\r\n+                        <TodoList \r\n+                        key={currTodo.id}\r\n+                         currTodo={currTodo.content} \r\n+                         handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n             </ul>\r\n"
+                },
+                {
+                    "date": 1764994425155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,9 +72,9 @@\n                 {todoList.map((currTodo)=>{\r\n                     return(\r\n                         <TodoList \r\n                         key={currTodo.id}\r\n-                         currTodo={currTodo.content} \r\n+                         data ={currTodo.content} \r\n                          handleDelButton={handleDelButton} />\r\n                     )\r\n                 })}\r\n                 <button onClick={handleClearAll}>Clear All</button>\r\n"
                 }
             ],
             "date": 1764910429944,

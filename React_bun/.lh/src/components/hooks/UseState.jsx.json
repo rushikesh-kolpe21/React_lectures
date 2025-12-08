@@ -1,0 +1,114 @@
+{
+    "sourceFile": "src/components/hooks/UseState.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1765081675740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765081869917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,22 @@\n export const UseState = () => {\r\n     return (\r\n-      <div> UseState Component</div>\r\n+     <div>\r\n+        <h2>UseState challenge</h2>\r\n+\r\n+        <p> Count : <span>0</span></p>\r\n+\r\n+        <div>\r\n+            <label htmlFor=\"\">\r\n+                step:\r\n+                <input type=\"number\" />\r\n+            </label>\r\n+        </div>\r\n+\r\n+        <div>\r\n+            <button>INC</button>\r\n+            <button>DEC</button>\r\n+            <button>RESET</button>\r\n+        </div>\r\n+     </div>\r\n     );\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1765082214205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,15 @@\n+import { useState } from \"react\";\r\n+\r\n export const UseState = () => {\r\n+\r\n+    const [count, setCount] = useState(0)\r\n+\r\n+    // handle increment btn\r\n+    const handleIncrementBtn=()=>{\r\n+        setCount(count+1);\r\n+    }\r\n+\r\n     return (\r\n      <div>\r\n         <h2>UseState challenge</h2>\r\n \r\n@@ -12,9 +22,9 @@\n             </label>\r\n         </div>\r\n \r\n         <div>\r\n-            <button>INC</button>\r\n+            <button onClick={handleIncrementBtn}>INC</button>\r\n             <button>DEC</button>\r\n             <button>RESET</button>\r\n         </div>\r\n      </div>\r\n"
+                },
+                {
+                    "date": 1765082271403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,13 @@\n     const handleIncrementBtn=()=>{\r\n         setCount(count+1);\r\n     }\r\n \r\n+    // handle decrement btn\r\n+    const handleDecrementBtn = ()=>{\r\n+        setCount(count-1);\r\n+    }\r\n+\r\n     return (\r\n      <div>\r\n         <h2>UseState challenge</h2>\r\n \r\n@@ -23,9 +28,9 @@\n         </div>\r\n \r\n         <div>\r\n             <button onClick={handleIncrementBtn}>INC</button>\r\n-            <button>DEC</button>\r\n+            <button onClick={handleDecrementBtn}>DEC</button>\r\n             <button>RESET</button>\r\n         </div>\r\n      </div>\r\n     );\r\n"
+                },
+                {
+                    "date": 1765082293086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     return (\r\n      <div>\r\n         <h2>UseState challenge</h2>\r\n \r\n-        <p> Count : <span>0</span></p>\r\n+        <p> Count : <span>{count}</span></p>\r\n \r\n         <div>\r\n             <label htmlFor=\"\">\r\n                 step:\r\n"
+                },
+                {
+                    "date": 1765082346105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n \r\n         <div>\r\n             <button onClick={handleIncrementBtn}>INC</button>\r\n             <button onClick={handleDecrementBtn}>DEC</button>\r\n-            <button>RESET</button>\r\n+            <button onClick={()=>setCount(0)}>RESET</button>\r\n         </div>\r\n      </div>\r\n     );\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1765082542734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n     }\r\n \r\n     // handle decrement btn\r\n     const handleDecrementBtn = ()=>{\r\n-        setCount(count-1);\r\n+        if(count >=0){\r\n+            setCount(count-1);\r\n+        }\r\n     }\r\n \r\n     return (\r\n      <div>\r\n"
+                },
+                {
+                    "date": 1765082558811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     }\r\n \r\n     // handle decrement btn\r\n     const handleDecrementBtn = ()=>{\r\n-        if(count >=0){\r\n+        if(count >0){\r\n             setCount(count-1);\r\n         }\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1765082567891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     }\r\n \r\n     // handle decrement btn\r\n     const handleDecrementBtn = ()=>{\r\n-        if(count >0){\r\n+        if(count > 0){\r\n             setCount(count-1);\r\n         }\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1765082612539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n     const [count, setCount] = useState(0)\r\n \r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n-        setCount(count+1);\r\n+        if(count < 10){\r\n+            setCount(count+1);\r\n+        }\r\n     }\r\n \r\n     // handle decrement btn\r\n     const handleDecrementBtn = ()=>{\r\n"
+                },
+                {
+                    "date": 1765082621656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     const [count, setCount] = useState(0)\r\n \r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n-        if(count < 10){\r\n+        if(count < 100){\r\n             setCount(count+1);\r\n         }\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1765082755645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import { useState } from \"react\";\r\n \r\n export const UseState = () => {\r\n \r\n-    const [count, setCount] = useState(0)\r\n+    const [count, setCount] = useState(0);\r\n \r\n+    const [step, setStep] = useState(1);\r\n+\r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n         if(count < 100){\r\n             setCount(count+1);\r\n"
+                },
+                {
+                    "date": 1765083009801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,13 @@\n             setCount(count-1);\r\n         }\r\n     }\r\n \r\n+    // handle on change\r\n+    const handleOnChange = (event)=>{\r\n+        setStep(Number(event.target.value));\r\n+    }\r\n+\r\n     return (\r\n      <div>\r\n         <h2>UseState challenge</h2>\r\n \r\n@@ -28,9 +33,10 @@\n \r\n         <div>\r\n             <label htmlFor=\"\">\r\n                 step:\r\n-                <input type=\"number\" />\r\n+                <input type=\"number\"\r\n+                onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n         <div>\r\n"
+                },
+                {
+                    "date": 1765083076484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n         <div>\r\n             <label htmlFor=\"\">\r\n                 step:\r\n                 <input type=\"number\"\r\n+                value={step}\r\n                 onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n"
+                },
+                {
+                    "date": 1765083081713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n         <div>\r\n             <label htmlFor=\"\">\r\n                 step:\r\n                 <input type=\"number\"\r\n-                value={step}\r\n+                // value={step}\r\n                 onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n"
+                },
+                {
+                    "date": 1765083205738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,16 +8,17 @@\n \r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n         if(count < 100){\r\n-            setCount(count+1);\r\n+            \r\n+            setCount(count+step);\r\n         }\r\n     }\r\n \r\n     // handle decrement btn\r\n     const handleDecrementBtn = ()=>{\r\n         if(count > 0){\r\n-            setCount(count-1);\r\n+            setCount(count-step);\r\n         }\r\n     }\r\n \r\n     // handle on change\r\n@@ -34,9 +35,9 @@\n         <div>\r\n             <label htmlFor=\"\">\r\n                 step:\r\n                 <input type=\"number\"\r\n-                // value={step}\r\n+                value={step}\r\n                 onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n"
+                },
+                {
+                    "date": 1765083237741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const UseState = () => {\r\n \r\n     const [count, setCount] = useState(0);\r\n \r\n-    const [step, setStep] = useState(1);\r\n+    const [step, setStep] = useState(0);\r\n \r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n         if(count < 100){\r\n"
+                },
+                {
+                    "date": 1765083247448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n export const UseState = () => {\r\n \r\n     const [count, setCount] = useState(0);\r\n \r\n-    const [step, setStep] = useState(0);\r\n+    const [step, setStep] = useState(1);\r\n \r\n     // handle increment btn\r\n     const handleIncrementBtn=()=>{\r\n         if(count < 100){\r\n"
+                },
+                {
+                    "date": 1765083344269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,51 @@\n+import { useState } from \"react\";\r\n+\r\n+export const UseState = () => {\r\n+\r\n+    const [count, setCount] = useState(0);\r\n+\r\n+    const [step, setStep] = useState(1);\r\n+\r\n+    // handle increment btn\r\n+    const handleIncrementBtn=()=>{\r\n+        if(count < 10){\r\n+            \r\n+            setCount(count+step);\r\n+        }\r\n+    }\r\n+\r\n+    // handle decrement btn\r\n+    const handleDecrementBtn = ()=>{\r\n+        if(count > 0){\r\n+            setCount(count-step);\r\n+        }\r\n+    }\r\n+\r\n+    // handle on change\r\n+    const handleOnChange = (event)=>{\r\n+        setStep(Number(event.target.value));\r\n+    }\r\n+\r\n+    return (\r\n+     <div>\r\n+        <h2>UseState challenge</h2>\r\n+\r\n+        <p> Count : <span>{count}</span></p>\r\n+\r\n+        <div>\r\n+            <label htmlFor=\"\">\r\n+                step:\r\n+                <input type=\"number\"\r\n+                value={step}\r\n+                onChange={handleOnChange} />\r\n+            </label>\r\n+        </div>\r\n+\r\n+        <div>\r\n+            <button onClick={handleIncrementBtn}>INC</button>\r\n+            <button onClick={handleDecrementBtn}>DEC</button>\r\n+            <button onClick={()=>setCount(0)}>RESET</button>\r\n+        </div>\r\n+     </div>\r\n+    );\r\n+  }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1765083622693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n \r\n         <p> Count : <span>{count}</span></p>\r\n \r\n         <div>\r\n-            <label htmlFor=\"\">\r\n+            <label >\r\n                 step:\r\n                 <input type=\"number\"\r\n                 value={step}\r\n                 onChange={handleOnChange} />\r\n@@ -47,56 +47,5 @@\n             <button onClick={()=>setCount(0)}>RESET</button>\r\n         </div>\r\n      </div>\r\n     );\r\n-  }\n-import { useState } from \"react\";\r\n-\r\n-export const UseState = () => {\r\n-\r\n-    const [count, setCount] = useState(0);\r\n-\r\n-    const [step, setStep] = useState(1);\r\n-\r\n-    // handle increment btn\r\n-    const handleIncrementBtn=()=>{\r\n-        if(count < 100){\r\n-            \r\n-            setCount(count+step);\r\n-        }\r\n-    }\r\n-\r\n-    // handle decrement btn\r\n-    const handleDecrementBtn = ()=>{\r\n-        if(count > 0){\r\n-            setCount(count-step);\r\n-        }\r\n-    }\r\n-\r\n-    // handle on change\r\n-    const handleOnChange = (event)=>{\r\n-        setStep(Number(event.target.value));\r\n-    }\r\n-\r\n-    return (\r\n-     <div>\r\n-        <h2>UseState challenge</h2>\r\n-\r\n-        <p> Count : <span>{count}</span></p>\r\n-\r\n-        <div>\r\n-            <label htmlFor=\"\">\r\n-                step:\r\n-                <input type=\"number\"\r\n-                value={step}\r\n-                onChange={handleOnChange} />\r\n-            </label>\r\n-        </div>\r\n-\r\n-        <div>\r\n-            <button onClick={handleIncrementBtn}>INC</button>\r\n-            <button onClick={handleDecrementBtn}>DEC</button>\r\n-            <button onClick={()=>setCount(0)}>RESET</button>\r\n-        </div>\r\n-     </div>\r\n-    );\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1765083641544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         <div>\r\n             <label >\r\n                 step:\r\n                 <input type=\"number\"\r\n-                value={step}\r\n+                // value={step}\r\n                 onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n"
+                },
+                {
+                    "date": 1765083680486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n         <div>\r\n             <label >\r\n                 step:\r\n                 <input type=\"number\"\r\n-                // value={step}\r\n+                // value={step} //controlled input to be uncontrolled error aa rha he\r\n                 onChange={handleOnChange} />\r\n             </label>\r\n         </div>\r\n \r\n"
+                },
+                {
+                    "date": 1765083892695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     }\r\n \r\n     // handle on change\r\n     const handleOnChange = (event)=>{\r\n-        setStep(Number(event.target.value));\r\n+        setStep(Number(event.target.value)); // why weuse Number becasue by default input value is string he\r\n     }\r\n \r\n     return (\r\n      <div>\r\n"
+                },
+                {
+                    "date": 1765083908455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     }\r\n \r\n     // handle on change\r\n     const handleOnChange = (event)=>{\r\n-        setStep(Number(event.target.value)); // why weuse Number becasue by default input value is string he\r\n+        setStep(Number(event.target.value)); // why weuse Number becasue by default input value is string he now user enter only number so we convert it into number\r\n     }\r\n \r\n     return (\r\n      <div>\r\n"
+                },
+                {
+                    "date": 1765083923768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     }\r\n \r\n     // handle on change\r\n     const handleOnChange = (event)=>{\r\n-        setStep(Number(event.target.value)); // why weuse Number becasue by default input value is string he now user enter only number so we convert it into number\r\n+        setStep(Number(event.target.value)); // why weuse Number becasue by default input value is string he now user enter only number so we convert it into number not enter string\r\n     }\r\n \r\n     return (\r\n      <div>\r\n"
+                }
+            ],
+            "date": 1765081675740,
+            "name": "Commit-0",
+            "content": "export const UseState = () => {\r\n    return (\r\n      <div> UseState Component</div>\r\n    );\r\n  }"
+        }
+    ]
+}

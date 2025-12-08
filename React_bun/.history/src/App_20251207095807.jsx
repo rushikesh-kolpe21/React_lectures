@@ -6,8 +6,6 @@ import { ToogleSwitch } from "./components/ToogleSwitch";
 import { ShortCircuitExample } from "./components/ShortCircuit";
 import { Todo } from "./projects/Todo/Todo";
 import { UseState } from "./components/hooks/UseState";
-import { RegistrationForm } from "./components/hooks/RegistrationForm";
-import { ReactUseEffect } from "./components/hooks/UseEffect/ReactUseEffect";
 
  export const App =()=> {
 
@@ -22,9 +20,7 @@ import { ReactUseEffect } from "./components/hooks/UseEffect/ReactUseEffect";
     {/* <ToogleSwitch/> */}
     {/* <section>{<Todo />}</section> */}
     {/* <ShortCircuitExample /> */}
-        {/* <UseState /> */}
-        {/* <RegistrationForm /> */}
-        <ReactUseEffect />
+    <UseState
     </>
   )
 }                                                          

@@ -24,7 +24,7 @@ import { ReactUseEffect } from "./components/hooks/UseEffect/ReactUseEffect";
     {/* <ShortCircuitExample /> */}
         {/* <UseState /> */}
         {/* <RegistrationForm /> */}
-        <ReactUseEffect />
+        <ReactUseEffect
     </>
   )
 }                                                          

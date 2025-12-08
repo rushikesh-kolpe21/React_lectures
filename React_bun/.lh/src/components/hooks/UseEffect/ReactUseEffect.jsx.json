@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/components/hooks/UseEffect/ReactUseEffect.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1765121877292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765123496832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,24 @@\n+\r\n export const ReactUseEffect = () => {\r\n+    const [count, setCount] = useState(0);\r\n   return (\r\n-<div>\r\n-    <h2>React UseEffect Component</h2>\r\n-</div>\r\n+     <div>\r\n+        <h1>React UseEffect Component</h1>\r\n+        <p>\r\n+            count:<span>{count}</span>\r\n+        </p>\r\n+        <button onClick={() => setCount(count + 1)}>Increment</button>\r\n+\r\n+        <p>\r\n+            Name: <span>John Doe</span>\r\n+        </p>\r\n+\r\n+        <label >\r\n+            <input \r\n+            type=\"text\" placeholder=\"Enter your name\"\r\n+            required\r\n+             />\r\n+        </label>\r\n+     </div>\r\n     )\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1765123513385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import { useState } from \"react\";\r\n \r\n export const ReactUseEffect = () => {\r\n     const [count, setCount] = useState(0);\r\n   return (\r\n"
+                },
+                {
+                    "date": 1765123623855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,13 @@\n import { useState } from \"react\";\r\n \r\n export const ReactUseEffect = () => {\r\n     const [count, setCount] = useState(0);\r\n+    const [name, setName] = useState(\"\");\r\n+\r\n+    const handleInputChange = (event) => {\r\n+        setName(event.target.value);\r\n+    };\r\n   return (\r\n      <div>\r\n         <h1>React UseEffect Component</h1>\r\n         <p>\r\n@@ -16,8 +21,10 @@\n \r\n         <label >\r\n             <input \r\n             type=\"text\" placeholder=\"Enter your name\"\r\n+            value={name} name=\"name\"\r\n+            onChange={handleInputChange}\r\n             required\r\n              />\r\n         </label>\r\n      </div>\r\n"
+                },
+                {
+                    "date": 1765123643789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </p>\r\n         <button onClick={() => setCount(count + 1)}>Increment</button>\r\n \r\n         <p>\r\n-            Name: <span>John Doe</span>\r\n+            Name: <span>{name}</span>\r\n         </p>\r\n \r\n         <label >\r\n             <input \r\n"
+                },
+                {
+                    "date": 1765123659955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n         <button onClick={() => setCount(count + 1)}>Increment</button>\r\n \r\n         <p>\r\n             Name: <span>{name}</span>\r\n+            console.log(name)\r\n         </p>\r\n \r\n         <label >\r\n             <input \r\n"
+                },
+                {
+                    "date": 1765123969559,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,14 @@\n-import { useState } from \"react\";\r\n+import { use, useState } from \"react\";\r\n \r\n export const ReactUseEffect = () => {\r\n     const [count, setCount] = useState(0);\r\n     const [name, setName] = useState(\"\");\r\n \r\n+    useEffect(() => {\r\n+        console.log(\"Count has changed:\", count);\r\n+    }, [count]); // Effect runs only when 'count' changes\r\n+\r\n     const handleInputChange = (event) => {\r\n         setName(event.target.value);\r\n     };\r\n   return (\r\n@@ -16,9 +20,9 @@\n         <button onClick={() => setCount(count + 1)}>Increment</button>\r\n \r\n         <p>\r\n             Name: <span>{name}</span>\r\n-            console.log(name)\r\n+            \r\n         </p>\r\n \r\n         <label >\r\n             <input \r\n"
+                },
+                {
+                    "date": 1765123992319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { use, useState } from \"react\";\r\n+import { useEffect, useState } from \"react\";\r\n \r\n export const ReactUseEffect = () => {\r\n     const [count, setCount] = useState(0);\r\n     const [name, setName] = useState(\"\");\r\n"
+                }
+            ],
+            "date": 1765121877291,
+            "name": "Commit-0",
+            "content": "export const ReactUseEffect = () => {\r\n  return (\r\n<div>\r\n    <h2>React UseEffect Component</h2>\r\n</div>\r\n    )\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "sourceFile": "React_bun/src/projects/Todo/TodoForm.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1764984404648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764984989199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,20 @@\n-export const TodoForm = ({inputData, handleInputChange, handleFormSubmit}) => {\r\n+import { useState } from \"react\";\r\n+\r\n+export const TodoForm = ({onAddTodo}) => {\r\n+\r\n+    const [inputData, setInputData] = useState(\"\");\r\n+\r\n+     // Handle input change\r\n+    const handleInputChange = (event)=>{\r\n+        setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n+    };\r\n+\r\n+    // Handle form submission\r\n+    const handleFormSubmit = ( event) => {\r\n+        onAddTodo(inputData);\r\n+    }\r\n+\r\n     return (\r\n         <section>\r\n              <form onSubmit={handleFormSubmit} >\r\n                 <div>\r\n"
+                },
+                {
+                    "date": 1764985248507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,12 @@\n     };\r\n \r\n     // Handle form submission\r\n     const handleFormSubmit = ( event) => {\r\n+        event.preventDefault(); // Prevent the default form submission behavior\r\n         onAddTodo(inputData);\r\n+        setInputData(\"\"); // Clear the input field after submission\r\n+\r\n     }\r\n \r\n     return (\r\n         <section>\r\n"
+                },
+                {
+                    "date": 1764985281463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,15 @@\n         setInputData(\"\"); // Clear the input field after submission\r\n \r\n     }\r\n \r\n+     // Handle button submit\r\n+    const onBtnSubmit = () => {\r\n+        setInputData(\"\"); // Clear the input field after submission\r\n+        // inputData()  //\r\n+    }\r\n+\r\n+\r\n     return (\r\n         <section>\r\n              <form onSubmit={handleFormSubmit} >\r\n                 <div>\r\n"
+                },
+                {
+                    "date": 1764985401121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n      // Handle button submit\r\n     const onBtnSubmit = () => {\r\n         setInputData(\"\"); // Clear the input field after submission\r\n-        // inputData()  //\r\n+        inputData()  //\r\n     }\r\n \r\n \r\n     return (\r\n"
+                },
+                {
+                    "date": 1764985421754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n      // Handle button submit\r\n     const onBtnSubmit = () => {\r\n         setInputData(\"\"); // Clear the input field after submission\r\n-        inputData()  //\r\n+        \r\n     }\r\n \r\n \r\n     return (\r\n"
+                },
+                {
+                    "date": 1764985541816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n \r\n     }\r\n \r\n      // Handle button submit\r\n-    const onBtnSubmit = () => {\r\n+    const onBtnSubmit = (event) => {\r\n+         event.preventDefault();\r\n         setInputData(\"\"); // Clear the input field after submission\r\n         \r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1764985614115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,14 +16,14 @@\n         setInputData(\"\"); // Clear the input field after submission\r\n \r\n     }\r\n \r\n-     // Handle button submit\r\n-    const onBtnSubmit = (event) => {\r\n-         event.preventDefault();\r\n-        setInputData(\"\"); // Clear the input field after submission\r\n+    //  // Handle button submit\r\n+    // const onBtnSubmit = (event) => {\r\n+    //      event.preventDefault();\r\n+    //     setInputData(\"\"); // Clear the input field after submission\r\n         \r\n-    }\r\n+    // }\r\n \r\n \r\n     return (\r\n         <section>\r\n@@ -34,9 +34,9 @@\n                     placeholder=\"Add your new todo\"\r\n                     value= {inputData} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n-                    <button onSubmit={onBtnSubmit} type=\"submit\">Add Task</button>\r\n+                    <button  type=\"submit\">Add Task</button>\r\n                 </div>\r\n             </form>\r\n         </section>\r\n     ); \r\n"
+                },
+                {
+                    "date": 1764990647182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import { useState } from \"react\";\r\n \r\n export const TodoForm = ({onAddTodo}) => {\r\n \r\n-    const [inputData, setInputData] = useState(\"\");\r\n+    const [inputData, setInputData] = useState({}); // Initial empty state for input data\"\");\r\n \r\n      // Handle input change\r\n     const handleInputChange = (event)=>{\r\n-        setInputData(event.target.value);// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n+        const value = event.target.value;\r\n+        setInputData({id: value, content: value, checked: false});// inputData state ko new data (user ne jo type kiya) se update kar raha hai.\r\n     };\r\n \r\n     // Handle form submission\r\n     const handleFormSubmit = ( event) => {\r\n@@ -31,9 +32,9 @@\n                 <div>\r\n                     <input\r\n                     type=\"text\"\r\n                     placeholder=\"Add your new todo\"\r\n-                    value= {inputData} // for give react control on input field and set value from state\r\n+                    value= {inputData.content || \"\"} // for give react control on input field and set value from state\r\n                     onChange={handleInputChange}\r\n                     />\r\n                     <button  type=\"submit\">Add Task</button>\r\n                 </div>\r\n"
+                }
+            ],
+            "date": 1764984404648,
+            "name": "Commit-0",
+            "content": "export const TodoForm = ({inputData, handleInputChange, handleFormSubmit}) => {\r\n    return (\r\n        <section>\r\n             <form onSubmit={handleFormSubmit} >\r\n                <div>\r\n                    <input\r\n                    type=\"text\"\r\n                    placeholder=\"Add your new todo\"\r\n                    value= {inputData} // for give react control on input field and set value from state\r\n                    onChange={handleInputChange}\r\n                    />\r\n                    <button onSubmit={onBtnSubmit} type=\"submit\">Add Task</button>\r\n                </div>\r\n            </form>\r\n        </section>\r\n    ); \r\n}"
+        }
+    ]
+}

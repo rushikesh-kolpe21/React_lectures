@@ -1,0 +1,34 @@
+{
+    "sourceFile": "React_bun/src/projects/Todo/TodoList.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1764986482764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764986568435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-export const TodoList=()=>{\r\n+export const TodoList=({currTodo, index, handleDelButton})=>{\r\n     return (\r\n         <li key={index}>{currTodo}\r\n                          <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n     );\r\n"
+                },
+                {
+                    "date": 1764994165978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-export const TodoList=({currTodo, index, handleDelButton})=>{\r\n+export const TodoList=({key, currTodo, index, handleDelButton})=>{\r\n     return (\r\n-        <li key={index}>{currTodo}\r\n+        <li>{currTodo}\r\n                          <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n     );\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1764994174696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n-export const TodoList=({key, currTodo, index, handleDelButton})=>{\r\n-    return (\r\n-        <li>{currTodo}\r\n-                         <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n-    );\r\n-}\n\\ No newline at end of file\n+export const TodoList = ({ key, currTodo, index, handleDelButton }) => {\r\n+  return (\r\n+    <li>\r\n+      {currTodo}\r\n+      <button onClick={() => handleDelButton(index)}>Del</button>\r\n+    </li>\r\n+  );\r\n+};\r\n"
+                },
+                {
+                    "date": 1764994429719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n-export const TodoList = ({ key, currTodo, index, handleDelButton }) => {\r\n+export const TodoList = ({ data, handleDelButton }) => {\r\n   return (\r\n     <li>\r\n-      {currTodo}\r\n+      {data}\r\n       <button onClick={() => handleDelButton(index)}>Del</button>\r\n     </li>\r\n   );\r\n };\r\n"
+                }
+            ],
+            "date": 1764986482764,
+            "name": "Commit-0",
+            "content": "export const TodoList=()=>{\r\n    return (\r\n        <li key={index}>{currTodo}\r\n                         <button onClick={() => handleDelButton(index)}>Del</button></li>\r\n    );\r\n}"
+        }
+    ]
+}

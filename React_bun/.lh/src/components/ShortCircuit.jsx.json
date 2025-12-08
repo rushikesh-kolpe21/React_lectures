@@ -1,0 +1,86 @@
+{
+    "sourceFile": "src/components/ShortCircuit.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1765074202135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1765074699348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,34 +1,20 @@\n-import { useState } from \"react\";\r\n \r\n \r\n export const ShortCircuitExample = () => {\r\n-  const [isLoggedIn, setIsLoggedIn] = useState(false);\r\n-  const [user, setUser] = useState(\"\");\r\n-\r\n   return (\r\n     <section className=\"container short-container\">\r\n       <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n \r\n-      {/* Conditional rendering using short-circuit */}\r\n-      {isLoggedIn && <p>You are logged in!</p>}\r\n+      {/* Conditional rendering using short circuit evaluation */}\r\n+      <p>You are logged in!</p>\r\n \r\n-      {/* Another example of short-circuit */}\r\n-      {user || <p>No user found</p>}\r\n-      {user && <p>User: {user}</p>}\r\n+      {/* Another example of short circuit evaluation */}\r\n \r\n       <div className=\"grid-three-cols\">\r\n-        <button onClick={() => setIsLoggedIn(!isLoggedIn)}>\r\n-          Toggle Login State\r\n-        </button>\r\n-\r\n-        <button onClick={() => setUser(\"Rushikesh\")}>\r\n-          Set User\r\n-        </button>\r\n-\r\n-        <button onClick={() => setUser(\"\")}>\r\n-          Clear User\r\n-        </button>\r\n+        <button>Toggle Login State</button>\r\n+        <button>Set User</button>\r\n+        <button>Clear User</button>\r\n       </div>\r\n     </section>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1765074813514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n+import { use, useState } from \"react\";\r\n \r\n \r\n export const ShortCircuitExample = () => {\r\n+\r\n+    const [isLoggedIn, setLoggedIn] = useState(false);\r\n+    \r\n   return (\r\n     <section className=\"container short-container\">\r\n       <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n \r\n"
+                },
+                {
+                    "date": 1765074925108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,22 @@\n-import { use, useState } from \"react\";\r\n+import { useState } from \"react\";\r\n \r\n \r\n export const ShortCircuitExample = () => {\r\n \r\n     const [isLoggedIn, setLoggedIn] = useState(false);\r\n-    \r\n+\r\n   return (\r\n     <section className=\"container short-container\">\r\n       <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n \r\n       {/* Conditional rendering using short circuit evaluation */}\r\n-      <p>You are logged in!</p>\r\n+    { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n \r\n       <div className=\"grid-three-cols\">\r\n-        <button>Toggle Login State</button>\r\n+        <button onClick={()=>setLoggedIn(isLoggedIn)}>Toggle Login State</button>\r\n         <button>Set User</button>\r\n         <button>Clear User</button>\r\n       </div>\r\n     </section>\r\n"
+                },
+                {
+                    "date": 1765074946323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \r\n       {/* Another example of short circuit evaluation */}\r\n \r\n       <div className=\"grid-three-cols\">\r\n-        <button onClick={()=>setLoggedIn(isLoggedIn)}>Toggle Login State</button>\r\n+        <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n         <button>Set User</button>\r\n         <button>Clear User</button>\r\n       </div>\r\n     </section>\r\n"
+                },
+                {
+                    "date": 1765075035715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n \r\n export const ShortCircuitExample = () => {\r\n \r\n-    const [isLoggedIn, setLoggedIn] = useState(false);\r\n+    const [isLoggedIn, setLoggedIn] = useState(false); // state variable ko true or false ke value de ta he\r\n \r\n   return (\r\n     <section className=\"container short-container\">\r\n       <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n"
+                },
+                {
+                    "date": 1765075117785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \r\n export const ShortCircuitExample = () => {\r\n \r\n     const [isLoggedIn, setLoggedIn] = useState(false); // state variable ko true or false ke value de ta he\r\n+    const [user, setUser] = useState(\"\")\r\n \r\n   return (\r\n     <section className=\"container short-container\">\r\n       <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n"
+                },
+                {
+                    "date": 1765075152252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n       {/* Another example of short circuit evaluation */}\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n-        <button>Set User</button>\r\n+        <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n         <button>Clear User</button>\r\n       </div>\r\n     </section>\r\n   );\r\n"
+                },
+                {
+                    "date": 1765075198837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n       {/* Conditional rendering using short circuit evaluation */}\r\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n+      {user && <p>login user: {user}</p>}\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n"
+                },
+                {
+                    "date": 1765075272254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n       {/* Conditional rendering using short circuit evaluation */}\r\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n+      {user || <p>user not found</p>}\r\n       {user && <p>login user: {user}</p>}\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n"
+                },
+                {
+                    "date": 1765075353032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+import { useState } from \"react\";\r\n+\r\n+\r\n+export const ShortCircuitExample = () => {\r\n+\r\n+    const [isLoggedIn, setLoggedIn] = useState(false); // state variable ko true or false ke value de ta he\r\n+    const [user, setUser] = useState(\"\")\r\n+\r\n+  return (\r\n+    <section className=\"container short-container\">\r\n+      <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n+\r\n+      {/* Conditional rendering using short circuit evaluation */}\r\n+    { isLoggedIn && <p>You are logged in!</p>}\r\n+\r\n+      {/* Another example of short circuit evaluation */}\r\n+      {user || <p>user not found</p>}\r\n+      {user && <p>login user: {user}</p>}\r\n+\r\n+      <div className=\"grid-three-cols\">\r\n+        <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n+        <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n+        <button onClick={()=> setUser(\"\")} >Clear User</button>\r\n+      </div>\r\n+    </section>\r\n+  );\r\n+};\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1765075663209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,33 +26,4 @@\n   );\r\n };\r\n \r\n \r\n-import { useState } from \"react\";\r\n-\r\n-\r\n-export const ShortCircuitExample = () => {\r\n-\r\n-    const [isLoggedIn, setLoggedIn] = useState(false); // state variable ko true or false ke value de ta he\r\n-    const [user, setUser] = useState(\"\")\r\n-\r\n-  return (\r\n-    <section className=\"container short-container\">\r\n-      <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n-\r\n-      {/* Conditional rendering using short circuit evaluation */}\r\n-    { isLoggedIn && <p>You are logged in!</p>}\r\n-\r\n-      {/* Another example of short circuit evaluation */}\r\n-      {user || <p>user not found</p>}\r\n-      {user && <p>login user: {user}</p>}\r\n-\r\n-      <div className=\"grid-three-cols\">\r\n-        <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n-        <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n-        <button>Clear User</button>\r\n-      </div>\r\n-    </section>\r\n-  );\r\n-};\r\n-\r\n-\r\n"
+                },
+                {
+                    "date": 1765075849185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n       {user || <p>user not found</p>}\r\n       {user && <p>login user: {user}</p>}\r\n \r\n       <div className=\"grid-three-cols\">\r\n-        <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button>\r\n+        <button onClick={()=>setLoggedIn(!isLoggedIn)}> \r\n+            Toggle Login State</button> { /* this above only making true or false statement */}\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n         <button onClick={()=> setUser(\"\")} >Clear User</button>\r\n       </div>\r\n     </section>\r\n"
+                },
+                {
+                    "date": 1765075979511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,12 @@\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n       {user || <p>user not found</p>}\r\n-      {user && <p>login user: {user}</p>}\r\n+      {user && <p>{user}is login user</p>}\r\n \r\n       <div className=\"grid-three-cols\">\r\n-        <button onClick={()=>setLoggedIn(!isLoggedIn)}> \r\n-            Toggle Login State</button> { /* this above only making true or false statement */}\r\n+        <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button> { /* this above only making true or false statement */}\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n         <button onClick={()=> setUser(\"\")} >Clear User</button>\r\n       </div>\r\n     </section>\r\n"
+                },
+                {
+                    "date": 1765076175333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n       {user || <p>user not found</p>}\r\n-      {user && <p>{user}is login user</p>}\r\n+      {user ? `${user} is login user `: \"You are logged in!\" }\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button> { /* this above only making true or false statement */}\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n"
+                },
+                {
+                    "date": 1765076190207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n       {/* Conditional rendering using short circuit evaluation */}\r\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n-      {user || <p>user not found</p>}\r\n+      {/* {user || <p>user not found</p>} */}\r\n       {user ? `${user} is login user `: \"You are logged in!\" }\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button> { /* this above only making true or false statement */}\r\n"
+                },
+                {
+                    "date": 1765076339968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n       {/* {user || <p>user not found</p>} */}\r\n-      {user ? `${user} is login user `: \"You are logged in!\" }\r\n+      {user ? `${user} is login user `: \"plz logged in!\" }\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button> { /* this above only making true or false statement */}\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n"
+                },
+                {
+                    "date": 1765076379039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     { isLoggedIn && <p>You are logged in!</p>}\r\n \r\n       {/* Another example of short circuit evaluation */}\r\n       {/* {user || <p>user not found</p>} */}\r\n-      {user ? `${user} is login user `: \"plz logged in!\" }\r\n+      {user ? `${user} is login user `: \"login and set user\" }\r\n \r\n       <div className=\"grid-three-cols\">\r\n         <button onClick={()=>setLoggedIn(!isLoggedIn)}>Toggle Login State</button> { /* this above only making true or false statement */}\r\n         <button onClick={()=> setUser(\"rushi\")}>Set User</button>\r\n"
+                }
+            ],
+            "date": 1765074202134,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\r\n\r\n\r\nexport const ShortCircuitExample = () => {\r\n  const [isLoggedIn, setIsLoggedIn] = useState(false);\r\n  const [user, setUser] = useState(\"\");\r\n\r\n  return (\r\n    <section className=\"container short-container\">\r\n      <h1>Welcome to the ShortCircuit Evaluation!</h1>\r\n\r\n      {/* Conditional rendering using short-circuit */}\r\n      {isLoggedIn && <p>You are logged in!</p>}\r\n\r\n      {/* Another example of short-circuit */}\r\n      {user || <p>No user found</p>}\r\n      {user && <p>User: {user}</p>}\r\n\r\n      <div className=\"grid-three-cols\">\r\n        <button onClick={() => setIsLoggedIn(!isLoggedIn)}>\r\n          Toggle Login State\r\n        </button>\r\n\r\n        <button onClick={() => setUser(\"Rushikesh\")}>\r\n          Set User\r\n        </button>\r\n\r\n        <button onClick={() => setUser(\"\")}>\r\n          Clear User\r\n        </button>\r\n      </div>\r\n    </section>\r\n  );\r\n};\r\n\r\n\r\n"
+        }
+    ]
+}
