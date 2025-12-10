@@ -8,6 +8,7 @@ import { Todo } from "./projects/Todo/Todo";
 import { UseState } from "./components/hooks/UseState";
 import { RegistrationForm } from "./components/hooks/RegistrationForm";
 import { ReactUseEffect } from "./components/hooks/UseEffect/ReactUseEffect";
+import { Cleanup } from "./components/hooks/UseEffect/CleanUp";
 
  export const App =()=> {
 
@@ -24,7 +25,8 @@ import { ReactUseEffect } from "./components/hooks/UseEffect/ReactUseEffect";
     {/* <ShortCircuitExample /> */}
         {/* <UseState /> */}
         {/* <RegistrationForm /> */}
-        <ReactUseEffect />
+        {/* <ReactUseEffect /> */}
+        <Cleanup/>
     </>
   )
 }                                                          

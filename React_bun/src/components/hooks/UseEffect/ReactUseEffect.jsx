@@ -4,9 +4,16 @@ export const ReactUseEffect = () => {
     const [count, setCount] = useState(0);
     const [name, setName] = useState("");
 
+    // order matters! keep hooks in hthe same order across render
+
+    // for updating title
+    useEffect(()=>{
+        document.title = `count ${count}`
+    },[count]);
+
     useEffect(() => {
-        console.log("Count has changed:", count);
-    }, [count]); // Effect runs only when 'count' changes
+        console.log("Count has changed:", name);
+    }, [name]); // Effect runs only when 'count' changes
 
     const handleInputChange = (event) => {
         setName(event.target.value);
